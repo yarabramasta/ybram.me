@@ -2,6 +2,18 @@
   "name": "nextjs",
   "version": "0.1.0",
   "private": true,
+  "author": "yarabramasta <yarabram111@gmail.com>",
+  "displayName": "Portfolio • Yara Bramasta",
+  "homepage": "https://github.com/yarabramasta/ybram",
+  "repository": {
+    "url": "https://github.com/yarabramasta/ybram.git",
+    "type": "git"
+  },
+  "readme": "https://github.com/yarabramasta/ybram#readme",
+  "bugs": {
+    "url": "https://github.com/yarabramasta/ybram/issues"
+  },
+  "description": "My personal portfolio project. Built with Next.js and other jamstack tools.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -32,5 +44,9 @@
     "prettier": "^2.8.3",
     "tailwindcss": "^3.2.4",
     "typescript": "^4.8.3"
+  },
+  "volta": {
+    "node": "18.13.0",
+    "yarn": "1.22.19"
   }
 }
