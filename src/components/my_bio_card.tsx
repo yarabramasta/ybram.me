@@ -7,7 +7,7 @@ const MyBioCard = () => {
     <div className="flex flex-col flex-wrap w-fit h-fit gradient-border-1 max-w-[320px] relative">
       <div className="absolute top-0 left-0 opacity-20">
         <Image
-          src="/elnath.svg"
+          src="https://bucket.ybram.my.id/assets/elnath.svg"
           alt="elnath: gradient-blob"
           width={400}
           height={400}
@@ -22,7 +22,7 @@ const MyBioCard = () => {
         }}
       >
         <Image
-          src="/ybram.svg"
+          src="https://bucket.ybram.my.id/assets/ybram.svg"
           alt="brand-logo"
           width={32}
           height={32}
