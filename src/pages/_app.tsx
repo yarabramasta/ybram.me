@@ -81,7 +81,7 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         ]}
       />
-      <main className={`${switzer.variable}`}>
+      <main className={`${switzer.variable} h-full relative`}>
         <Component {...pageProps} />
       </main>
       <Analytics />
