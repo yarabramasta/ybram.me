@@ -36,3 +36,5 @@ public/**/*.zip
 public/**/*.txt
 public/**/*.xml
 !public/font/**/*.txt
+
+sanity/
