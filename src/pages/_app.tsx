@@ -32,7 +32,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <DefaultSeo
-        titleTemplate="%s - Yara Bramasta"
+        titleTemplate="%s • Yara Bramasta"
         defaultTitle="Yara Bramasta"
         description="A college student & mobile app developer from Indonesia."
         themeColor="#0A0A0C"
@@ -40,7 +40,14 @@ export default function App({ Component, pageProps }: AppProps) {
           type: 'website',
           locale: 'en',
           url: 'https://www.ybram.me/',
-          siteName: 'Yara Bramasta'
+          siteName: 'Yara Bramasta',
+          images: [
+            {
+              url: 'https://bucket.ybram.my.id/assets/ybram.svg',
+              type: 'image/svg+xml',
+              alt: 'ybram - logo'
+            }
+          ]
         }}
         twitter={{
           handle: '@yarabram',
