@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "Yara Bramasta",
+  "short_name": "ybram",
+  "start_url": ".",
+  "theme_color": "#F2F2F9",
+  "background_color": "#0A0A0C",
+  "display": "standalone",
+  "description": "A college student & mobile app developer from Indonesia.",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
