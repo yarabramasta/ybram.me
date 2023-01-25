@@ -85,6 +85,11 @@ export default function App({ Component, pageProps }: AppProps) {
           {
             name: 'apple-mobile-web-app-status-bar-style',
             content: 'black-translucent'
+          },
+          {
+            name: 'keywords',
+            content:
+              'yara,yarabramasta,yara bramasta,ybram.me,ybram.my.id,www.ybram.me,www.ybram.my.id,bram,ybram,portfolio,personal portfolio,indonesia,malang,jawa timur,east java,indonesian,personal,github,yarabramasta github com,tech,flutter,developer,mobile,mobile app developer,android,ios'
           }
         ]}
       />
