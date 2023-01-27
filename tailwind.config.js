@@ -19,7 +19,7 @@ module.exports = {
       typography: theme => ({
         DEFAULT: {
           css: {
-            color: theme('colors.white70'),
+            color: theme('colors.white60'),
             h1: {
               color: theme('colors.white')
             },
@@ -42,7 +42,7 @@ module.exports = {
               color: theme('colors.white85')
             },
             p: {
-              color: theme('colors.white70')
+              color: theme('colors.white60')
             },
             a: {
               color: theme('colors.accent'),
@@ -66,7 +66,7 @@ module.exports = {
       black: '#0a0a0c',
       white: '#f2f2f9',
       white85: '#f2f2f9d9',
-      white70: '#f2f2f9b3',
+      white60: '#f2f2f9b3',
       white40: '#f2f2f966',
       white20: '#f2f2f933',
       accent: '#7400e9'

@@ -7,7 +7,7 @@
     --bg-color: #0a0a0c;
     --fg-color: #f2f2f9;
     --white85: #f2f2f9d9;
-    --white70: #f2f2f9b3;
+    --white60: #f2f2f999;
     --white40: #f2f2f966;
     --white20: #f2f2f933;
     --accent-color: #7400e9;
@@ -57,9 +57,9 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 150%;
+  line-height: 125%;
 }
 
 p {
-  line-height: 125%;
+  line-height: 150%;
 }

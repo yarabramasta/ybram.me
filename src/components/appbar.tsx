@@ -12,7 +12,7 @@ const AppBar = (_: any, ref: any) => {
   const logoText = {
     default: {
       fontSize: '0.875rem',
-      color: 'var(--white70)'
+      color: 'var(--white60)'
     },
     scroll: {
       fontSize: '1rem',
@@ -63,7 +63,7 @@ const AppBar = (_: any, ref: any) => {
             />
           </motion.svg>
           <motion.h3
-            className="text-sm font-medium text-white70"
+            className="text-sm font-medium text-white60"
             variants={logoText}
             animate={isUnderScroll ? 'scroll' : 'default'}
             transition={transition}
