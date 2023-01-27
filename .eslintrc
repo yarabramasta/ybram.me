@@ -25,6 +25,8 @@
     "prettier"
   ],
   "plugins": ["react", "react-hooks", "jsx-a11y", "prettier"],
-  "rules": {},
+  "rules": {
+    "no-unused-vars": ["warn"]
+  },
   "ignorePatterns": ["**/*.d.ts", "node_modules", ".next"]
 }
