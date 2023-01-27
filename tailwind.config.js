@@ -3,6 +3,18 @@ module.exports = {
   content: ['./src/**/*.{jsx,tsx}'],
   theme: {
     extends: {
+      fontSize: {
+        sm: '0.75rem',
+        base: ['1rem', '150%'],
+        lg: ['1.5rem', '125%'],
+        xl: ['2.5rem', '125%']
+      },
+      spacing: {
+        text: '0.5rem',
+        section: '3rem',
+        component: '1.5rem',
+        normal: '2rem'
+      },
       typography: theme => ({
         DEFAULT: {
           css: {
