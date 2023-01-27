@@ -2,6 +2,7 @@ import localFont from '@next/font/local';
 import { Analytics } from '@vercel/analytics/react';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
+import useMeasure from 'react-use-measure';
 
 import { AppBar } from '@/components';
 
@@ -31,6 +32,8 @@ const switzer = localFont({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [ref, { height }] = useMeasure();
+
   return (
     <>
       <DefaultSeo
@@ -95,8 +98,11 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         ]}
       />
-      <AppBar />
-      <main className={`${switzer.variable} h-full relative`}>
+      <AppBar ref={ref} />
+      <main
+        className={`${switzer.variable} h-full relative`}
+        style={{ paddingTop: height }}
+      >
         <Component {...pageProps} />
       </main>
       <Analytics />

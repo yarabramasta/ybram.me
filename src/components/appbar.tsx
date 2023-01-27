@@ -1,7 +1,7 @@
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
-import { useState, type FC } from 'react';
+import { forwardRef, useState } from 'react';
 
-const AppBar: FC = () => {
+const AppBar = (_: any, ref: any) => {
   const { scrollY } = useScroll();
   const [isUnderScroll, setIsUnderScroll] = useState(false);
 
@@ -40,8 +40,11 @@ const AppBar: FC = () => {
   const transition = { ease: [0.16, 1, 0.3, 1], duration: 0.3 };
 
   return (
-    <header className="w-screen px-normal py-4 fixed top-0 left-0 z-10">
-      <div className="w-full max-w-[640px] flex flex-row items-center justify-beetwen">
+    <motion.header
+      ref={ref}
+      className="w-screen px-normal py-4 fixed top-0 left-0 z-10 backdrop-blur-md"
+    >
+      <div className="w-full max-w-[720px] flex flex-row items-center justify-beetwen mx-auto">
         <div className="flex flex-row gap-2 items-center justify-start w-fit">
           <motion.svg
             id="a"
@@ -74,8 +77,8 @@ const AppBar: FC = () => {
         animate={isUnderScroll ? 'scroll' : 'default'}
         className="absolute left-0 bottom-0 h-[1px] w-full bg-white20"
       />
-    </header>
+    </motion.header>
   );
 };
 
-export default AppBar;
+export default forwardRef(AppBar);
