@@ -1,7 +1,7 @@
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
-import { forwardRef, useState } from 'react';
+import { useState } from 'react';
 
-const AppBar = (_: any, ref: any) => {
+const AppBar = () => {
   const { scrollY } = useScroll();
   const [isUnderScroll, setIsUnderScroll] = useState(false);
 
@@ -40,10 +40,7 @@ const AppBar = (_: any, ref: any) => {
   const transition = { ease: [0.16, 1, 0.3, 1], duration: 0.3 };
 
   return (
-    <motion.header
-      ref={ref}
-      className="w-screen px-normal py-4 fixed top-0 left-0 z-10 backdrop-blur-md"
-    >
+    <header className="w-screen px-normal py-4 fixed top-0 left-0 z-10 backdrop-blur-md">
       <div className="w-full max-w-[720px] flex flex-row items-center justify-beetwen mx-auto">
         <div className="flex flex-row gap-2 items-center justify-start w-fit">
           <motion.svg
@@ -51,6 +48,7 @@ const AppBar = (_: any, ref: any) => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 256 256"
             height={24}
+            initial={false}
             animate={{ height: isUnderScroll ? 32 : 24 }}
             transition={transition}
           >
@@ -63,6 +61,7 @@ const AppBar = (_: any, ref: any) => {
             />
           </motion.svg>
           <motion.h3
+            initial={false}
             className="text-sm font-medium text-white60"
             variants={logoText}
             animate={isUnderScroll ? 'scroll' : 'default'}
@@ -73,12 +72,13 @@ const AppBar = (_: any, ref: any) => {
         </div>
       </div>
       <motion.div
+        initial={false}
         variants={barStroke}
         animate={isUnderScroll ? 'scroll' : 'default'}
         className="absolute left-0 bottom-0 h-[1px] w-full bg-white20"
       />
-    </motion.header>
+    </header>
   );
 };
 
-export default forwardRef(AppBar);
+export default AppBar;

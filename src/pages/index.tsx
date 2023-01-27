@@ -13,15 +13,15 @@ const HomePage: NextPage = () => {
             <ul className="flex flex-row md:justify-end items-center gap-component">
               <Home.SocialLink
                 href="/socials/github"
-                path={Home.ICONOIR_PATH.github}
+                path={Home.socialIcons.github}
               />
               <Home.SocialLink
                 href="/socials/twitter"
-                path={Home.ICONOIR_PATH.twitter}
+                path={Home.socialIcons.twitter}
               />
               <Home.SocialLink
                 href="/socials/linkedin"
-                path={Home.ICONOIR_PATH.linkedin}
+                path={Home.socialIcons.linkedin}
               />
             </ul>
           </div>
@@ -38,23 +38,13 @@ const HomePage: NextPage = () => {
         </div>
         <div className="flex flex-col gap-component w-full flex-wrap mb-section">
           <div className="flex flex-col md:flex-row gap-component">
-            <div className="border border-white20 rounded-md p-component w-full">
-              <p className="text-white60">
-                Currently a student at University of Merdeka Malang.
-              </p>
-            </div>
-            <div className="border border-white20 rounded-md p-component w-full">
-              <p className="text-white60">
-                Former intern at RetGoo Sentris Informa.
-              </p>
-            </div>
+            <Home.FYICard text="Currently a student at University of Merdeka Malang." />
+            <Home.FYICard text="Former intern at RetGoo Sentris Informa." />
           </div>
-          <div className="border border-white20 rounded-md p-component w-full">
-            <p className="text-white60">
-              Alumni from the 2022 class of SMKN 4 Malang&apos;s software
-              engineering major.
-            </p>
-          </div>
+          <Home.FYICard
+            text="Alumni from the 2022 class of SMKN 4 Malang's software
+              engineering major."
+          />
         </div>
       </div>
       <footer className="flex flex-row w-full max-w-640px gap-normal items-center justify-center px-normal py-component">
