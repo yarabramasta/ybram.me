@@ -1,3 +1,6 @@
+import '@/styles/globals.css';
+import '@code-hike/mdx/dist/index.css';
+
 import localFont from '@next/font/local';
 import { Analytics } from '@vercel/analytics/react';
 import { DefaultSeo } from 'next-seo';
@@ -5,8 +8,6 @@ import type { AppProps } from 'next/app';
 import useMeasure from 'react-use-measure';
 
 import { AppBar } from '@/components';
-
-import '@/styles/globals.css';
 
 const switzer = localFont({
   src: [

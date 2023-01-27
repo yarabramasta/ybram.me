@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 
 import { Home } from '@/components';
+import CHBio from '@/components/home/ch_bio.mdx';
 
 const HomePage: NextPage = () => {
   return (
@@ -31,6 +32,9 @@ const HomePage: NextPage = () => {
         A passionate software developer from Indonesa, focusing on mobile app
         development with Flutter as main tool since 2021.
       </p>
+      <div className="py-component">
+        <CHBio />
+      </div>
     </div>
   );
 };

@@ -1,5 +1,23 @@
+const { remarkCodeHike } = require('@code-hike/mdx');
+const theme = require('shiki/themes/poimandres.json');
+
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [
+      [
+        remarkCodeHike,
+        {
+          theme,
+          lineNumbers: true
+        }
+      ]
+    ]
+  }
+});
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = withMDX({
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -24,6 +42,6 @@ const nextConfig = {
       }
     ];
   }
-};
+});
 
 module.exports = nextConfig;
