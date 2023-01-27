@@ -7,9 +7,6 @@
     --bg-color: #0a0a0c;
     --fg-color: #f2f2f9;
     --accent-color: #7400e9;
-    --linear-grad-1: linear-gradient(93.8deg, #3535d6 0%, #7400e9 100%);
-    --linear-grad-2: linear-gradient(93.8deg, #7400e9 0%, #3535d6 100%);
-    --linear-grad-3: linear-gradient(144.29deg, #3535d6 20.91%, #7400e9 79.09%);
   }
 }
 
@@ -40,34 +37,25 @@ body {
   font-family: 'Switzer', system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
     sans-serif;
-  font-weight: normal;
   background-color: var(--bg-color);
   color: var(--fg-color);
   -webkit-tap-highlight-color: transparent;
 }
 
-a,
-li {
-  @apply duration-300 ease-in-out;
+pre,
+code {
+  font-family: 'SF Mono', 'Source Code Pro', 'Cascadia Code', monospace;
 }
 
-.gradient-border-1 {
-  background: linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
-    linear-gradient(to right, #3535d6, var(--accent-color)) border-box;
-  border-radius: 8px;
-  border: 2px solid transparent;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 150%;
 }
 
-.gradient-border-2 {
-  background: linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
-    linear-gradient(to left, #3535d6, var(--accent-color)) border-box;
-  border-radius: 8px;
-  border: 2px solid transparent;
-}
-
-.gradient-border-3 {
-  background: linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
-    linear-gradient(to bottom, #3535d6, var(--accent-color)) border-box;
-  border-radius: 8px;
-  border: 2px solid transparent;
+p {
+  line-height: 125%;
 }
