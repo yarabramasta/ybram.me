@@ -2,9 +2,10 @@
 module.exports = {
   content: ['./src/**/*.{jsx,tsx}'],
   theme: {
-    extends: {
+    extend: {
       fontSize: {
-        sm: '0.75rem',
+        xs: '0.75rem',
+        sm: '0.875rem',
         base: ['1rem', '150%'],
         lg: ['1.5rem', '125%'],
         xl: ['2.5rem', '125%']

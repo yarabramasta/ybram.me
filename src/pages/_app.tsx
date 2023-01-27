@@ -1,9 +1,11 @@
-import '@/styles/globals.css';
-
 import localFont from '@next/font/local';
 import { Analytics } from '@vercel/analytics/react';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
+
+import { AppBar } from '@/components';
+
+import '@/styles/globals.css';
 
 const switzer = localFont({
   src: [
@@ -93,9 +95,12 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         ]}
       />
-      <main className={`${switzer.variable} h-full relative`}>
-        <Component {...pageProps} />
-      </main>
+      <div>
+        <AppBar />
+        <main className={`${switzer.variable} h-full relative`}>
+          <Component {...pageProps} />
+        </main>
+      </div>
       <Analytics />
     </>
   );
