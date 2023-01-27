@@ -16,6 +16,11 @@ const nextConfig = {
         source: '/socials/github',
         destination: 'https://github.com/yarabramasta',
         permanent: true
+      },
+      {
+        source: '/socials/linkedin',
+        destination: 'https://www.linkedin.com/in/yara-bramasta-a1b711263',
+        permanent: true
       }
     ];
   }
