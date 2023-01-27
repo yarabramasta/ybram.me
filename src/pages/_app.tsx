@@ -4,6 +4,7 @@ import '@code-hike/mdx/dist/index.css';
 import localFont from '@next/font/local';
 import { Analytics } from '@vercel/analytics/react';
 import type { AppProps } from 'next/app';
+import useMeasure from 'react-use-measure';
 
 import { AppBar, Head } from '@/components';
 
@@ -31,6 +32,8 @@ const switzer = localFont({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [ref, { height }] = useMeasure();
+
   return (
     <>
       <Head />
