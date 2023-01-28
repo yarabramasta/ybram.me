@@ -1,6 +1,36 @@
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { useState } from 'react';
 
+const logoText = {
+  default: {
+    fontSize: '0.875rem',
+    color: 'var(--white60)'
+  },
+  scroll: {
+    fontSize: '1rem',
+    color: 'var(--white85)'
+  }
+};
+
+const barStroke = {
+  default: {
+    width: 0,
+    opacity: 0
+  },
+  scroll: {
+    width: '100%',
+    opacity: 1,
+    transition: {
+      ease: 'linear',
+      width: {
+        delay: 0.1
+      }
+    }
+  }
+};
+
+const transition = { ease: [0.16, 1, 0.3, 1], duration: 0.3 };
+
 const AppBar = () => {
   const { scrollY } = useScroll();
   const [isUnderScroll, setIsUnderScroll] = useState(false);
@@ -8,36 +38,6 @@ const AppBar = () => {
   useMotionValueEvent(scrollY, 'change', latest => {
     setIsUnderScroll(latest >= 5);
   });
-
-  const logoText = {
-    default: {
-      fontSize: '0.875rem',
-      color: 'var(--white60)'
-    },
-    scroll: {
-      fontSize: '1rem',
-      color: 'var(--white85)'
-    }
-  };
-
-  const barStroke = {
-    default: {
-      width: 0,
-      opacity: 0
-    },
-    scroll: {
-      width: '100%',
-      opacity: 1,
-      transition: {
-        ease: 'linear',
-        width: {
-          delay: 0.1
-        }
-      }
-    }
-  };
-
-  const transition = { ease: [0.16, 1, 0.3, 1], duration: 0.3 };
 
   return (
     <header className="w-screen px-normal py-4 fixed top-0 left-0 z-10 backdrop-blur-md">
