@@ -33,3 +33,8 @@ yarn-error.log*
 
 .vscode/
 sanity/
+
+public/**/*.zip
+public/**/*.txt
+public/**/*.xml
+!public/font/**/*.txt

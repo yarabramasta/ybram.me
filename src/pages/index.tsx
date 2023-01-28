@@ -31,7 +31,7 @@ const HomePage: NextPage = () => {
           </h2>
         </div>
         <p className="text-base text-white60">
-          A passionate software developer from Indonesa, focusing on mobile app
+          A passionate software developer from Indonesia, focusing on mobile app
           development with Flutter as main tool since 2021.
         </p>
         <div className="py-component">
