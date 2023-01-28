@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import Link from 'next/link';
 
 import { Home } from '@/components';
 import CHBio from '@/components/home/ch_bio.mdx';
@@ -38,13 +39,46 @@ const HomePage: NextPage = () => {
         </div>
         <div className="flex flex-col gap-component w-full flex-wrap mb-section">
           <div className="flex flex-col md:flex-row gap-component">
-            <Home.FYICard text="Currently a student at University of Merdeka Malang." />
-            <Home.FYICard text="Former intern at RetGoo Sentris Informa." />
+            <Home.FYICard>
+              Currently a student at{' '}
+              <span className="text-accent underline">
+                <Link
+                  href="https://unmer.ac.id"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  University of Merdeka Malang
+                </Link>
+              </span>
+              .
+            </Home.FYICard>
+            <Home.FYICard>
+              Former intern at{' '}
+              <span className="text-accent underline">
+                <Link
+                  href="https://www.retgoo.id"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  RetGoo Sentris Informa
+                </Link>
+              </span>
+              .
+            </Home.FYICard>
           </div>
-          <Home.FYICard
-            text="Alumni from the 2022 class of SMKN 4 Malang's software
-              engineering major."
-          />
+          <Home.FYICard>
+            Alumni from the 2022 class of{' '}
+            <span className="text-accent underline">
+              <Link
+                href="https://smkn4malang.sch.id"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                SMKN 4 Malang
+              </Link>
+            </span>
+            &apos;s software engineering major.
+          </Home.FYICard>
         </div>
       </div>
       <footer className="flex flex-row w-full max-w-640px gap-normal items-center justify-center px-normal py-component">
