@@ -34,8 +34,8 @@ const switzer = localFont({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  // if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
+    // if (typeof window !== 'undefined') {
     getAnalytics(app);
     getPerformance(app);
   }

@@ -11,6 +11,8 @@
     --white40: #f2f2f966;
     --white20: #f2f2f933;
     --accent-color: #7400e9;
+    scrollbar-width: thin;
+    scrollbar-color: var(--white40) var(--white20);
   }
 }
 
@@ -19,9 +21,23 @@
 }
 
 ::selection {
-  background: var(--accent-color);
+  background: rgba(116, 0, 233, 0.4);
   color: var(--fg-color);
   opacity: 0.1;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--white20);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--white40);
+  border-radius: 20px;
+  border: 4px solid transparent;
 }
 
 html,
