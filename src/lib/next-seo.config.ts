@@ -63,6 +63,10 @@ const config: DefaultSeoProps = {
     {
       name: 'apple-mobile-web-app-status-bar-style',
       content: 'black-translucent'
+    },
+    {
+      name: 'google-site-verification',
+      content: 'g5Jypw7qhL9rKyiZ4-7hqifydSaFcO3REmVeyd2qij0'
     }
   ]
 };

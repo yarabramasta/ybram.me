@@ -41,7 +41,7 @@ const HomePage: NextPage = () => {
           <div className="flex flex-col md:flex-row gap-component">
             <Home.FYICard>
               Currently a student at{' '}
-              <span className="text-accent underline">
+              <span className="text-accent hover:underline">
                 <Link
                   href="https://unmer.ac.id"
                   target="_blank"
@@ -54,7 +54,7 @@ const HomePage: NextPage = () => {
             </Home.FYICard>
             <Home.FYICard>
               Former intern at{' '}
-              <span className="text-accent underline">
+              <span className="text-accent hover:underline">
                 <Link
                   href="https://www.retgoo.id"
                   target="_blank"
@@ -68,7 +68,7 @@ const HomePage: NextPage = () => {
           </div>
           <Home.FYICard>
             Alumni from the 2022 class of{' '}
-            <span className="text-accent underline">
+            <span className="text-accent hover:underline">
               <Link
                 href="https://smkn4malang.sch.id"
                 target="_blank"
