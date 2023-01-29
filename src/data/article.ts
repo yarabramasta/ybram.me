@@ -32,6 +32,7 @@ interface Props {
 
 export interface IArticle extends Partial<Props> {
   readEst: string;
+  views: number;
 }
 
 class Article {
@@ -61,20 +62,22 @@ class Article {
 
     return {
       ...res.props,
-      readEst: res.readingTimeCount
+      readEst: res.readingTimeCount,
+      views: 0
     };
   }
 
   public static getLatestArticles(
     data: IArticleJSON[]
-  ): Pick<IArticle, 'id' | 'title' | 'slug' | 'readEst'>[] {
+  ): Pick<IArticle, 'id' | 'title' | 'slug' | 'readEst' | 'views'>[] {
     const res = data.map(Article.factory);
 
-    return res.map(({ title, readEst, id, slug }) => ({
+    return res.map(({ title, readEst, id, slug, views }) => ({
       id,
       slug,
       title,
-      readEst
+      readEst,
+      views
     }));
   }
 }

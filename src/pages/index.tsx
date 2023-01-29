@@ -3,30 +3,8 @@ import Link from 'next/link';
 
 import { Home } from '@/components';
 import CHBio from '@/components/home/ch_bio.mdx';
-import { Article, type IArticleJSON } from '@/data';
-import { useGraphQL } from '@/lib/graphql_fetcher';
-import { useMemo } from 'react';
 
 const HomePage: NextPage = () => {
-  const { data, error } = useGraphQL<{ allArticle: [IArticleJSON] }>(
-    `query {
-      allArticle(limit: 3, sort: { _createdAt: DESC }) {
-        _id
-        slug { current }
-        title
-        author { name }
-        body
-        _createdAt
-      }
-    }
-    `
-  );
-
-  const latestArticles = useMemo(
-    () => Article.getLatestArticles(data?.allArticle ?? []),
-    [data]
-  );
-
   return (
     <>
       <div className="max-w-[640px] mx-auto p-normal">
@@ -102,13 +80,7 @@ const HomePage: NextPage = () => {
             &apos;s software engineering major.
           </Home.FYICard>
         </div>
-        {error ? (
-          <p className="text-sm font-medium text-danger w-full text-center">
-            Unable to retrieve latest articles.
-          </p>
-        ) : (
-          data && <pre>{JSON.stringify(latestArticles, null, 2)}</pre>
-        )}
+        <Home.Articles />
       </div>
       <footer className="flex flex-row w-full max-w-640px gap-normal items-center justify-center px-normal py-component">
         <p className="text-white60 text-sm">
