@@ -30,16 +30,20 @@ interface Props {
   createdAt: Date;
 }
 
+export interface IArticle extends Partial<Props> {
+  readEst: string;
+}
+
 class Article {
   // eslint-disable-next-line no-unused-vars
   public constructor(public readonly props: Props) {}
 
-  public get readEst() {
+  public get readingTimeCount() {
     const { text } = readingTime(this.props.body);
     return text;
   }
 
-  public static factory(data: IArticleJSON) {
+  public static factory(data: IArticleJSON): IArticle {
     const res: Article = new Article({
       id: data._id,
       title: data.title,
@@ -55,7 +59,23 @@ class Article {
       slug: data.slug.current
     });
 
-    return res;
+    return {
+      ...res.props,
+      readEst: res.readingTimeCount
+    };
+  }
+
+  public static getLatestArticles(
+    data: IArticleJSON[]
+  ): Pick<IArticle, 'id' | 'title' | 'slug' | 'readEst'>[] {
+    const res = data.map(Article.factory);
+
+    return res.map(({ title, readEst, id, slug }) => ({
+      id,
+      slug,
+      title,
+      readEst
+    }));
   }
 }
 

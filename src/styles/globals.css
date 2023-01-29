@@ -11,6 +11,7 @@
     --white40: #f2f2f966;
     --white20: #f2f2f933;
     --accent-color: #7400e9;
+    --danger: #e63434;
     scrollbar-width: thin;
     scrollbar-color: var(--white40) var(--white20);
   }

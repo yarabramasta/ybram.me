@@ -8,7 +8,7 @@ import { useGraphQL } from '@/lib/graphql_fetcher';
 import { useMemo } from 'react';
 
 const HomePage: NextPage = () => {
-  const { data } = useGraphQL<{ allArticle: [IArticleJSON] }>(
+  const { data, error } = useGraphQL<{ allArticle: [IArticleJSON] }>(
     `query {
       allArticle(limit: 3, sort: { _createdAt: DESC }) {
         _id
@@ -22,7 +22,10 @@ const HomePage: NextPage = () => {
     `
   );
 
-  const articles = useMemo(() => data.allArticle.map(Article.factory), [data]);
+  const latestArticles = useMemo(
+    () => Article.getLatestArticles(data?.allArticle ?? []),
+    [data]
+  );
 
   return (
     <>
@@ -99,7 +102,13 @@ const HomePage: NextPage = () => {
             &apos;s software engineering major.
           </Home.FYICard>
         </div>
-        <pre>{JSON.stringify(articles, null, 2)}</pre>
+        {error ? (
+          <p className="text-sm font-medium text-danger w-full text-center">
+            Unable to retrieve latest articles.
+          </p>
+        ) : (
+          data && <pre>{JSON.stringify(latestArticles, null, 2)}</pre>
+        )}
       </div>
       <footer className="flex flex-row w-full max-w-640px gap-normal items-center justify-center px-normal py-component">
         <p className="text-white60 text-sm">

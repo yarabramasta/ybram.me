@@ -69,7 +69,8 @@ module.exports = {
       white60: '#f2f2f9b3',
       white40: '#f2f2f966',
       white20: '#f2f2f933',
-      accent: '#7400e9'
+      accent: '#7400e9',
+      danger: '#e63434'
     }
   },
   plugins: [require('@tailwindcss/typography')]
