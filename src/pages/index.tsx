@@ -3,8 +3,27 @@ import Link from 'next/link';
 
 import { Home } from '@/components';
 import CHBio from '@/components/home/ch_bio.mdx';
+import { Article, type IArticleJSON } from '@/data';
+import { useGraphQL } from '@/lib/graphql_fetcher';
+import { useMemo } from 'react';
 
 const HomePage: NextPage = () => {
+  const { data } = useGraphQL<{ allArticle: [IArticleJSON] }>(
+    `query {
+      allArticle(limit: 3, sort: { _createdAt: DESC }) {
+        _id
+        slug { current }
+        title
+        author { name }
+        body
+        _createdAt
+      }
+    }
+    `
+  );
+
+  const articles = useMemo(() => data.allArticle.map(Article.factory), [data]);
+
   return (
     <>
       <div className="max-w-[640px] mx-auto p-normal">
@@ -26,7 +45,7 @@ const HomePage: NextPage = () => {
               />
             </ul>
           </div>
-          <h2 className="text-base text-white85">
+          <h2 className="text-base text-white85 font-medium">
             Mobile App Developer &bull; He/Him
           </h2>
         </div>
@@ -41,7 +60,7 @@ const HomePage: NextPage = () => {
           <div className="flex flex-col md:flex-row gap-component">
             <Home.FYICard>
               Currently a student at{' '}
-              <span className="text-accent hover:underline">
+              <span className="text-white85 font-medium hover:underline">
                 <Link
                   href="https://unmer.ac.id"
                   target="_blank"
@@ -54,7 +73,7 @@ const HomePage: NextPage = () => {
             </Home.FYICard>
             <Home.FYICard>
               Former intern at{' '}
-              <span className="text-accent hover:underline">
+              <span className="text-white85 font-medium hover:underline">
                 <Link
                   href="https://www.retgoo.id"
                   target="_blank"
@@ -68,7 +87,7 @@ const HomePage: NextPage = () => {
           </div>
           <Home.FYICard>
             Alumni from the 2022 class of{' '}
-            <span className="text-accent hover:underline">
+            <span className="text-white85 font-medium hover:underline">
               <Link
                 href="https://smkn4malang.sch.id"
                 target="_blank"
@@ -80,6 +99,7 @@ const HomePage: NextPage = () => {
             &apos;s software engineering major.
           </Home.FYICard>
         </div>
+        <pre>{JSON.stringify(articles, null, 2)}</pre>
       </div>
       <footer className="flex flex-row w-full max-w-640px gap-normal items-center justify-center px-normal py-component">
         <p className="text-white60 text-sm">
