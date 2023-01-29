@@ -9,7 +9,7 @@ const ArticleCard: FC<{
   return (
     <Link
       href={article.slug ? `/blog/${article.slug}` : '/404'}
-      style={{ width: 'calc(100% / 2)' }}
+      className="article-card"
       onClick={evt => evt.preventDefault()}
     >
       <div className="h-full overflow-hidden gradient-border flex flex-col p-component gap-section">

@@ -88,3 +88,13 @@ p {
   border-radius: 6px;
   border: 4px solid transparent;
 }
+
+.article-card {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .article-card {
+    width: 'calc(100% / 2)';
+  }
+}
