@@ -46,7 +46,7 @@ const fyiLink = {
   }
 };
 
-const HomePage: NextPage = () => {
+const Home: NextPage = () => {
   return (
     <div className="max-w-[640px] mx-auto p-normal">
       <section className="flex flex-col mb-section gap-component">
@@ -55,17 +55,17 @@ const HomePage: NextPage = () => {
             <h1 className="text-xl font-bold">Yara Bramasta</h1>
             <ul className="flex flex-row gap-normal">
               <li className="w-fit group">
-                <Link {...socialLink.github}>
+                <Link title="github/yarabramasta" {...socialLink.github}>
                   <GithubCircle className={socialIconStyle} />
                 </Link>
               </li>
               <li className="w-fit group">
-                <Link {...socialLink.twitter}>
+                <Link title="twitter/yarabram" {...socialLink.twitter}>
                   <Twitter className={socialIconStyle} />
                 </Link>
               </li>
               <li className="w-fit group">
-                <Link {...socialLink.linkedin}>
+                <Link title="linkedin/yara-bramasta" {...socialLink.linkedin}>
                   <LinkedIn className={socialIconStyle} />
                 </Link>
               </li>
@@ -89,7 +89,9 @@ const HomePage: NextPage = () => {
             <p>
               <span className="text-white60">Currently a student at </span>
               <span className="text-white85 font-medium hover:underline">
-                <Link {...fyiLink.unmer}>University of Merdeka Malang</Link>
+                <Link title="Universitas Merdeka Malang" {...fyiLink.unmer}>
+                  University of Merdeka Malang
+                </Link>
               </span>
               .
             </p>
@@ -98,7 +100,9 @@ const HomePage: NextPage = () => {
             <p>
               <span className="text-white60">Former intern at </span>
               <span className="text-white85 font-medium hover:underline">
-                <Link {...fyiLink.retgoo}>RetGoo Sentris Informa</Link>
+                <Link title="PT. RetGoo Sentris Informa" {...fyiLink.retgoo}>
+                  RetGoo Sentris Informa
+                </Link>
               </span>
               .
             </p>
@@ -108,7 +112,9 @@ const HomePage: NextPage = () => {
           <p>
             <span className="text-white60">Alumni from the 2022 class of </span>
             <span className="text-white85 font-medium hover:underline">
-              <Link {...fyiLink.grafika}>SMKN 4 Malang</Link>
+              <Link title="SMK Negeri 4 Malang" {...fyiLink.grafika}>
+                SMKN 4 Malang
+              </Link>
             </span>
             <span className="text-white60">
               &apos;s software engineering major.
@@ -120,4 +126,4 @@ const HomePage: NextPage = () => {
   );
 };
 
-export default HomePage;
+export default Home;
