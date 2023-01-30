@@ -8,7 +8,7 @@ const config: DefaultSeoProps = {
   themeColor: '#0A0A0C',
   openGraph: {
     type: 'website',
-    locale: 'en_IE',
+    locale: 'en',
     url: 'https://www.ybram.me/',
     siteName: 'Yara Bramasta',
     title: 'Yara Bramasta',
@@ -23,7 +23,7 @@ const config: DefaultSeoProps = {
       {
         url: 'https://bucket.ybram.my.id/assets/ybram.svg',
         type: 'image/svg+xml',
-        alt: 'ybram - logo'
+        alt: 'A college student & mobile app developer from Indonesia.'
       }
     ]
   },
