@@ -29,11 +29,13 @@ const switzer = localFont({
 
 const Layout: FC = ({ children }) => {
   return (
-    <div className={`${switzer.variable} h-full relative flex flex-col`}>
-      <AppBar />
-      <main className="flex-grow pt-[64px]">{children}</main>
-      <Footer />
-    </div>
+    <>
+      <div className={`${switzer.variable} h-full relative flex flex-col`}>
+        <AppBar />
+        <main className="flex-grow pt-[64px]">{children}</main>
+        <Footer />
+      </div>
+    </>
   );
 };
 
