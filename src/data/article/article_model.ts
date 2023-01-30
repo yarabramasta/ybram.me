@@ -2,11 +2,10 @@ import format from 'date-fns/format';
 import formatDistance from 'date-fns/formatDistance';
 import readingTime from 'reading-time';
 
-import { Author, IAuthorJson } from '../author';
+import { Author, type IAuthorJson } from '../author';
+import { fromArticleJson, toFeaturedArticle } from './article_mapper';
 
-import { fromArticleJson } from './article_mapper';
-
-export interface IArticleJSON {
+export interface IArticleJson {
   _id: string;
   _createdAt: string;
   slug: Slug;
@@ -48,9 +47,26 @@ class Article {
     });
   }
 
-  public static fromJson(json: IArticleJSON) {
+  public static fromJson(json: IArticleJson) {
     return fromArticleJson(json);
   }
+
+  // eslint-disable-next-line no-unused-vars
+  public static toFeaturedArticle(article: IArticleJson): FeaturedArticle;
+  // eslint-disable-next-line no-dupe-class-members
+  public static toFeaturedArticle(
+    article: Article | IArticleJson
+  ): FeaturedArticle {
+    return article instanceof Article
+      ? toFeaturedArticle(article)
+      : toFeaturedArticle(Article.fromJson(article));
+  }
+}
+
+export interface FeaturedArticle
+  extends Pick<typeof Article.prototype.props, 'id' | 'slug' | 'title'> {
+  createdAtStr: string;
+  readtime: string;
 }
 
 export default Article;

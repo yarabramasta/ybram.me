@@ -1,5 +1,5 @@
-import '@/styles/globals.css';
 import '@code-hike/mdx/dist/index.css';
+import 'mod/styles/globals.css';
 
 import localFont from '@next/font/local';
 import { Analytics } from '@vercel/analytics/react';
@@ -7,8 +7,8 @@ import { getAnalytics } from 'firebase/analytics';
 import { getPerformance } from 'firebase/performance';
 import type { AppProps } from 'next/app';
 
-import { AppBar, Head } from '@/components';
-import app from '@/lib/firebase_client';
+import { AppBar, Head } from 'mod/components';
+import app from 'mod/lib/firebase_client';
 
 const switzer = localFont({
   src: [

@@ -1,31 +1,12 @@
-import { gqlClient } from '@/lib/graphql_fetcher';
+import { gqlClient } from 'mod/lib/graphql_fetcher';
 
-import Article, { IArticleJSON } from './article_model';
+import Article, { type IArticleJson } from './article_model';
+import { FEATURED_ARTICLES_QUERY } from './constants';
 
 export async function getFeaturedArticles() {
-  const res = await gqlClient.request<{
-    allArticle: IArticleJSON[];
-  }>(`query {
-        allArticle(
-          where: {
-            featured: { eq: true },
-            _: { is_draft: false }
-          },
-          limit: 2,
-          sort: { _createdAt: DESC }
-        ) {
-          _id
-          slug { current }
-          title
-          featured
-          author { name, default, fallback }
-          body
-          _createdAt
-        }
-      }
-    `);
+  const data = await gqlClient.request<{
+    allArticle: IArticleJson[];
+  }>(FEATURED_ARTICLES_QUERY);
 
-  const articles = (res.allArticle ?? <IArticleJSON[]>[]).map(Article.fromJson);
-
-  return articles;
+  return (data?.allArticle ?? []).map(Article.toFeaturedArticle);
 }

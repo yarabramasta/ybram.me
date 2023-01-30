@@ -80,21 +80,3 @@ h6 {
 p {
   line-height: 150%;
 }
-
-.gradient-border {
-  background: linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
-    linear-gradient(97.23deg, #9c42f7 0%, #abfdae 61.46%, #496ff9 100%)
-      border-box;
-  border-radius: 6px;
-  border: 4px solid transparent;
-}
-
-.article-card {
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .article-card {
-    width: 'calc(100% / 2)';
-  }
-}

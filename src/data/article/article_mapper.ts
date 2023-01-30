@@ -1,10 +1,13 @@
 import { Author } from '../author';
-import Article, { IArticleJSON } from './article_model';
+import Article, {
+  type FeaturedArticle,
+  type IArticleJson
+} from './article_model';
 
-export function fromArticleJson(json: IArticleJSON): Article {
+export function fromArticleJson(json: IArticleJson): Article {
   const article = new Article({
     id: json['_id'],
-    slug: json['slug'].current,
+    slug: json['slug']['current'],
     title: json['title'],
     author: Author.fromJson(json['author']),
     featured: json['featured'],
@@ -13,4 +16,18 @@ export function fromArticleJson(json: IArticleJSON): Article {
   });
 
   return article;
+}
+
+export function toFeaturedArticle({
+  readtime,
+  props: { id, title, slug },
+  createdAtStr
+}: Article): FeaturedArticle {
+  return {
+    id,
+    slug,
+    title,
+    readtime,
+    createdAtStr
+  };
 }

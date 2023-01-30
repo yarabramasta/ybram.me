@@ -1,5 +1,5 @@
-export * from './constants';
-export { default as FeaturedArticles } from './featured_articles';
-export { default as FYICard } from './fyi_card';
-export { default as FYILink } from './fyi_link';
-export { default as SocialLink } from './social_link';
+export { BioSection } from './bio_section';
+export { default as FeaturedSection } from './featured_section';
+export * as FYI from './fyi';
+export { SocialLinkList } from './social_link';
+export { default as TitleSection } from './title_section';

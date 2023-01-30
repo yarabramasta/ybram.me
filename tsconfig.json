@@ -16,8 +16,8 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@/styles/*": ["./src/styles/*"]
+      "mod/*": ["./src/*"],
+      "mod/styles/*": ["./src/styles/*"]
     },
     "incremental": true
   },

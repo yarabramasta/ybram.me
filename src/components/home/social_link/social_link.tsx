@@ -21,29 +21,37 @@ const SocialLink: FC<Props> = ({ href, path }) => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {path instanceof Array ? (
-            <>
-              {path.map((v, i) => (
-                <path
-                  key={i}
-                  d={v}
-                  stroke="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              ))}
-            </>
-          ) : (
+          <Path path={path} />
+        </svg>
+      </li>
+    </Link>
+  );
+};
+
+const Path: FC<{ path: string | string[] }> = ({ path }) => {
+  return (
+    <>
+      {path instanceof Array ? (
+        <>
+          {path.map((v, i) => (
             <path
-              d={path}
+              key={i}
+              d={v}
               stroke="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-          )}
-        </svg>
-      </li>
-    </Link>
+          ))}
+        </>
+      ) : (
+        <path
+          d={path}
+          stroke="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      )}
+    </>
   );
 };
 

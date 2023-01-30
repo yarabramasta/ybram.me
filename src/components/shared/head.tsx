@@ -1,6 +1,6 @@
 import { DefaultSeo } from 'next-seo';
 
-import defaultSeoConfig from '@/lib/next-seo.config';
+import defaultSeoConfig from 'mod/lib/next-seo.config';
 
 const Head = ({ title }: { title?: string }) => {
   return (

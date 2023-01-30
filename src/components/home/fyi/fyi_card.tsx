@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-const FYICard: FC = ({ children }) => {
+const Card: FC = ({ children }) => {
   return (
     <div className="border border-white20 rounded-md p-component w-full">
       <p className="text-white60">{children}</p>
@@ -8,4 +8,4 @@ const FYICard: FC = ({ children }) => {
   );
 };
 
-export default FYICard;
+export default Card;

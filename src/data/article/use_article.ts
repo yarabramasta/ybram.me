@@ -1,36 +1,19 @@
-import { useGraphQL } from '@/lib/graphql_fetcher';
+import { useGraphQL } from 'mod/lib/graphql_fetcher';
 
-import Article, { type IArticleJSON } from './article_model';
+import Article, {
+  type FeaturedArticle,
+  type IArticleJson
+} from './article_model';
+import { FEATURED_ARTICLES_QUERY } from './constants';
 
-export function useFeaturedArticles(fallback?: Article[]) {
+export function useFeaturedArticles(fallback: FeaturedArticle[] = []) {
   const { data, error, isLoading } = useGraphQL<{
-    allArticle: IArticleJSON[];
-  }>(
-    `query {
-      allArticle(
-        where: {
-          featured: { eq: true },
-          _: { is_draft: false }
-        },
-        limit: 2,
-        sort: { _createdAt: DESC }
-      ) {
-        _id
-        slug { current }
-        title
-        featured
-        author { name, default, fallback }
-        body
-        _createdAt
-      }
-    }
-  `,
-    fallback
-  );
+    allArticle: IArticleJson[];
+  }>(FEATURED_ARTICLES_QUERY, fallback);
 
-  const articles = (data?.allArticle ?? <IArticleJSON[]>[]).map(
-    Article.fromJson
-  );
-
-  return { articles, error, isLoading };
+  return {
+    articles: (data?.allArticle ?? []).map(Article.toFeaturedArticle),
+    error,
+    isLoading
+  };
 }
