@@ -10,6 +10,22 @@ module.exports = {
         lg: ['1.5rem', '125%'],
         xl: ['2.5rem', '125%']
       },
+      fontFamily: {
+        sans: [
+          'var(--font-switzer)',
+          ...require('tailwindcss/defaultTheme').fontFamily.sans
+        ]
+      },
+      colors: {
+        black: '#0a0a0c',
+        white: '#f2f2f9',
+        white85: '#f2f2f9d9',
+        white60: '#f2f2f9b3',
+        white40: '#f2f2f966',
+        white20: '#f2f2f933',
+        accent: '#7400e9',
+        red: '#e63434'
+      },
       spacing: {
         text: '0.5rem',
         section: '3rem',
@@ -55,22 +71,6 @@ module.exports = {
           }
         }
       })
-    },
-    fontFamily: {
-      sans: [
-        'var(--font-switzer)',
-        ...require('tailwindcss/defaultTheme').fontFamily.sans
-      ]
-    },
-    colors: {
-      black: '#0a0a0c',
-      white: '#f2f2f9',
-      white85: '#f2f2f9d9',
-      white60: '#f2f2f9b3',
-      white40: '#f2f2f966',
-      white20: '#f2f2f933',
-      accent: '#7400e9',
-      danger: '#e63434'
     }
   },
   plugins: [require('@tailwindcss/typography')]
