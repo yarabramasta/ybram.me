@@ -6,7 +6,7 @@ type Props = {
 
 const ArticleViewCount: FC<Props> = () => {
   return (
-    <div className="flex flex-row gap-text items-center">
+    <div className="flex flex-row gap-text items-end">
       <svg
         height={24}
         strokeWidth="1.5"

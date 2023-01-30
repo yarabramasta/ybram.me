@@ -11,7 +11,7 @@ type Props = {
 
 const FeaturedArticleCard: FC<Props> = ({ article }) => {
   return (
-    // <Card href={`/blog/${article.slug}`}>
+    //<Card href={`/blog/${article.slug}`}> */}
     <Card title={article.title} gradient>
       <div className="flex flex-col gap-text flex-grow mb-section">
         <h3 className="text-lg font-semibold">{article.title}</h3>

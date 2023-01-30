@@ -13,14 +13,18 @@ const FeaturedSection: FC<Props> = ({ fallback }) => {
 
   if (isLoading)
     return (
-      <p className="text-sm font-medium text-white60 w-full">Loading...</p>
+      <div className="mb-section">
+        <p className="text-sm font-medium text-white85 w-full">Loading...</p>
+      </div>
     );
 
   if (error) {
     return (
-      <p className="text-sm font-medium text-danger w-full">
-        Unable to retrieve latest articles.
-      </p>
+      <div className="mb-section">
+        <p className="text-sm font-medium text-danger w-full">
+          Unable to retrieve featured articles.
+        </p>
+      </div>
     );
   }
 

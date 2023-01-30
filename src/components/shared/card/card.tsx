@@ -33,7 +33,7 @@ const Card: FC<Props> = ({ children, href, gradient = false, title }) => {
         }
       `}</style>
       <div
-        className={`h-full overflow-hidden flex flex-col p-component ${border}`}
+        className={`h-full overflow-hidden flex flex-col p-component hover:shadow-xl hover:scale-105 hover:shadow-[rgb(0 0 0 / 0.6)] duration-300 ease-in-out ${border}`}
       >
         <Link
           href={href ?? ''}
