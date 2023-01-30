@@ -80,16 +80,18 @@ const AppBar: FC = () => {
 
   return (
     <header className="w-screen px-normal py-4 fixed top-0 left-0 z-10 backdrop-blur-md">
-      <div className="flex flex-row gap-2 items-center justify-start w-fit">
-        <LogoIcon animate={{ height: isUnderScroll ? 32 : 24 }} />
-        <LogoText animate={isUnderScroll ? 'scroll' : 'default'} />
+      <div className="mx-auto max-w-[720px]">
+        <div className="flex flex-row gap-2 items-center justify-start w-fit">
+          <LogoIcon animate={{ height: isUnderScroll ? 32 : 24 }} />
+          <LogoText animate={isUnderScroll ? 'scroll' : 'default'} />
+        </div>
+        <motion.div
+          initial={false}
+          variants={barStroke}
+          animate={isUnderScroll ? 'scroll' : 'default'}
+          className="absolute left-0 bottom-0 h-[1px] w-full bg-white20"
+        />
       </div>
-      <motion.div
-        initial={false}
-        variants={barStroke}
-        animate={isUnderScroll ? 'scroll' : 'default'}
-        className="absolute left-0 bottom-0 h-[1px] w-full bg-white20"
-      />
     </header>
   );
 };
