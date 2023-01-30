@@ -1,0 +1,19 @@
+.layout {
+  @apply max-w-[640px] mx-auto p-normal;
+}
+
+.title_container {
+  @apply flex flex-col w-full flex-wrap gap-text mb-component;
+}
+
+.h1_container {
+  @apply w-full flex flex-col-reverse gap-component md:gap-[0px] md:flex-row md:items-baseline md:justify-between;
+}
+
+.social_links_container {
+  @apply flex flex-row md:justify-end items-center gap-component;
+}
+
+.fyi_container {
+  @apply flex flex-col gap-component w-full flex-wrap mb-section;
+}

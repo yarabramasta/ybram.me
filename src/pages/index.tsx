@@ -1,27 +1,32 @@
-import type { NextPage } from 'next';
-import Link from 'next/link';
+import type { GetStaticProps, NextPage } from 'next';
 
-import { Home } from '@/components';
+import { Footer, Home } from '@/components';
 import CHBio from '@/components/home/ch_bio.mdx';
+import styles from '@/components/home/home.module.css';
+import { Article, getFeaturedArticles } from '@/data/article';
 
-const HomePage: NextPage = () => {
+type Articles = {
+  articles: Article[];
+};
+
+const HomePage: NextPage<Articles> = ({ articles }) => {
   return (
     <>
-      <div className="max-w-[640px] mx-auto p-normal">
-        <div className="flex flex-col w-full flex-wrap gap-text mb-component">
-          <div className="w-full flex flex-col-reverse gap-component md:gap-[0px] md:flex-row md:items-baseline md:justify-between">
+      <div className={styles.layout}>
+        <div className={styles.title_container}>
+          <div className={styles.h1_container}>
             <h1 className="text-xl font-bold">Yara Bramasta</h1>
-            <ul className="flex flex-row md:justify-end items-center gap-component">
+            <ul className={styles.social_links_container}>
               <Home.SocialLink
-                href="/socials/github"
+                href="https://github.com/yarabramasta"
                 path={Home.socialIcons.github}
               />
               <Home.SocialLink
-                href="/socials/twitter"
+                href="https://twitter.com/yarabram"
                 path={Home.socialIcons.twitter}
               />
               <Home.SocialLink
-                href="/socials/linkedin"
+                href="https://www.linkedin.com/in/yara-bramasta-a1b711263"
                 path={Home.socialIcons.linkedin}
               />
             </ul>
@@ -37,58 +42,47 @@ const HomePage: NextPage = () => {
         <div className="py-component">
           <CHBio />
         </div>
-        <div className="flex flex-col gap-component w-full flex-wrap mb-section">
+        <div className={styles.fyi_container}>
           <div className="flex flex-col md:flex-row gap-component">
             <Home.FYICard>
               Currently a student at{' '}
-              <span className="text-white85 font-medium hover:underline">
-                <Link
-                  href="https://unmer.ac.id"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  University of Merdeka Malang
-                </Link>
-              </span>
+              <Home.FYILink href="https://unmer.ac.id">
+                University of Merdeka Malang
+              </Home.FYILink>
               .
             </Home.FYICard>
             <Home.FYICard>
               Former intern at{' '}
-              <span className="text-white85 font-medium hover:underline">
-                <Link
-                  href="https://www.retgoo.id"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  RetGoo Sentris Informa
-                </Link>
-              </span>
+              <Home.FYILink href="https://www.retgoo.id">
+                RetGoo Sentris Informa
+              </Home.FYILink>
               .
             </Home.FYICard>
           </div>
           <Home.FYICard>
             Alumni from the 2022 class of{' '}
-            <span className="text-white85 font-medium hover:underline">
-              <Link
-                href="https://smkn4malang.sch.id"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                SMKN 4 Malang
-              </Link>
-            </span>
+            <Home.FYILink href="https://smkn4malang.sch.id">
+              SMKN 4 Malang
+            </Home.FYILink>
             &apos;s software engineering major.
           </Home.FYICard>
         </div>
-        <Home.Articles />
+        <Home.FeaturedArticles fallback={articles} />
       </div>
-      <footer className="flex flex-row w-full max-w-640px gap-normal items-center justify-center px-normal py-component">
-        <p className="text-white60 text-sm">
-          &copy; 2023 Yara Bramasta. All rights reserved.
-        </p>
-      </footer>
+      <Footer />
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps<Articles> = async () => {
+  const articles = await getFeaturedArticles();
+
+  return {
+    props: {
+      articles: JSON.parse(JSON.stringify(articles))
+    },
+    revalidate: 10
+  };
 };
 
 export default HomePage;

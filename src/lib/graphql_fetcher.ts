@@ -1,17 +1,31 @@
-import { gql, request } from 'graphql-request';
+import { gql, GraphQLClient, request } from 'graphql-request';
 import useSWR from 'swr';
+
+const endpoint = <string>process.env.NEXT_PUBLIC_SANITY_GRAPHQL_URL;
+const authorizationHeader = {
+  Authorization: `Bearer ${process.env.NEXT_PUBLIC_SANITY_AUTH_TOKEN}`
+};
+
+export const gqlClient = new GraphQLClient(endpoint, {
+  headers: authorizationHeader
+});
 
 const fetcher = (query: string) => {
   return request(
-    <string>process.env.NEXT_PUBLIC_SANITY_GRAPHQL_URL,
+    endpoint,
     gql`
       ${query}
     `,
     null,
-    { Authorization: `Bearer ${process.env.NEXT_PUBLIC_SANITY_AUTH_TOKEN}` }
+    authorizationHeader
   );
 };
 
-export const useGraphQL = <T>(query: string) => useSWR<T>(query, fetcher);
+export const useGraphQL = <T>(query: string, fallback?: any) => {
+  return useSWR<T>(query, fetcher, {
+    fallbackData: fallback,
+    refreshInterval: 30000 // 30 seconds
+  });
+};
 
 export default fetcher;
