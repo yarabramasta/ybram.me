@@ -4,11 +4,11 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        xs: '0.75rem',
-        sm: '0.875rem',
-        base: ['1rem', '150%'],
-        lg: ['1.5rem', '125%'],
-        xl: ['2.5rem', '125%']
+        xs: ['0.75rem', '120%'],
+        sm: ['0.875rem', '120%'],
+        base: ['1rem', '170%'],
+        lg: ['1.5rem', '130%'],
+        xl: ['2.5rem', '130%']
       },
       fontFamily: {
         sans: [
@@ -29,6 +29,7 @@ module.exports = {
         white20: 'var(--color-white20)',
         accent: 'var(--color-accent)',
         accent60: 'var(--color-accent60)',
+        accent40: 'var(--color-accent40)',
         accent20: 'var(--color-accent20)',
         red: 'var(--color-danger)'
       },
@@ -38,45 +39,17 @@ module.exports = {
         component: '1.5rem',
         normal: '2rem'
       },
-      typography: theme => ({
-        DEFAULT: {
+      typography: {
+        quoteless: {
           css: {
-            color: theme('colors.white60'),
-            h1: {
-              color: theme('colors.white')
-            },
-            h2: {
-              color: theme('colors.white')
-            },
-            h3: {
-              color: theme('colors.white')
-            },
-            h4: {
-              color: theme('colors.white')
-            },
-            h5: {
-              color: theme('colors.white')
-            },
-            h6: {
-              color: theme('colors.white')
-            },
-            strong: {
-              color: theme('colors.white85')
-            },
-            p: {
-              color: theme('colors.white60')
-            },
-            a: {
-              color: theme('colors.accent60'),
-              fontWeight: '500',
-              '&:hover': {
-                color: theme('colors.accent'),
-                textDecoration: 'underline'
-              }
-            }
+            'blockquote p:first-of-type::before': { content: 'none' },
+            'blockquote p:first-of-type::after': { content: 'none' }
           }
         }
-      })
+      }
+    },
+    future: {
+      hoverOnlyWhenSupported: true
     }
   },
   plugins: [require('@tailwindcss/typography')]

@@ -1,13 +1,12 @@
 import type { NextFontWithVariable } from '@next/font';
-import type { FC } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
-import AppBar from './AppBar';
-import Footer from './Footer';
+import AppBar from './appbar';
+import Footer from './footer';
 
-const Layout: FC<{ fontFamily: NextFontWithVariable }> = ({
-  children,
-  fontFamily: switzer
-}) => {
+const RootLayout: FC<
+  PropsWithChildren<{ fontFamily: NextFontWithVariable }>
+> = ({ children, fontFamily: switzer }) => {
   return (
     <div
       className={`${switzer.variable} h-full relative flex flex-col font-sans antialiased`}
@@ -19,4 +18,4 @@ const Layout: FC<{ fontFamily: NextFontWithVariable }> = ({
   );
 };
 
-export default Layout;
+export default RootLayout;

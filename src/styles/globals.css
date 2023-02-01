@@ -16,6 +16,7 @@
     --color-white20: #f2f2f933;
     --color-accent: #5454f1;
     --color-accent60: #5454f199;
+    --color-accent40: #5454f166;
     --color-accent20: #5454f133;
     --color-danger: #e63434;
     scrollbar-width: thin;
@@ -27,7 +28,7 @@
   }
 
   ::selection {
-    @apply bg-accent20 text-white;
+    @apply bg-accent40 text-white;
   }
 
   ::-webkit-scrollbar {
@@ -48,6 +49,7 @@
   body {
     @apply w-screen h-full min-h-screen;
     min-height: -webkit-fill-available !important;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -66,11 +68,15 @@
   h4,
   h5,
   h6 {
-    line-height: 125%;
+    line-height: 130%;
   }
 
   p {
-    line-height: 150%;
+    line-height: 170%;
+  }
+
+  a {
+    @apply outline-none;
   }
 }
 
@@ -82,4 +88,36 @@
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   @apply font-mono;
+}
+
+.prose .anchor {
+  @apply absolute invisible no-underline;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose .anchor:after {
+  @apply text-white40;
+  content: '#';
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
+.prose .tweet a {
+  text-decoration: inherit;
+  font-weight: inherit;
+}
+
+.prose .callout > p {
+  margin: 0 !important;
 }

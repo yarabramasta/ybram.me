@@ -59,13 +59,21 @@ const LogoText: FC<{ animate: AnimationProps['animate'] }> = ({ animate }) => {
 const barStroke = {
   default: {
     width: 0,
-    opacity: 0
+    opacity: 0,
+    transition: {
+      ease: [0.16, 1, 0.3, 1],
+      duration: 0.5,
+      width: {
+        delay: 0.1
+      }
+    }
   },
   scroll: {
     width: '100%',
     opacity: 1,
     transition: {
       ease: [0.16, 1, 0.3, 1],
+      duration: 0.5,
       width: {
         delay: 0.1
       }
@@ -83,7 +91,7 @@ const AppBar: FC = () => {
 
   return (
     <header className="w-screen px-normal py-4 fixed top-0 left-0 z-10 backdrop-blur-md">
-      <div className="mx-auto max-w-[720px]">
+      <div className="mx-auto max-w-[720px] flex flex-row items-center justify-between">
         <div className="flex flex-row gap-2 items-center justify-start w-fit">
           <LogoIcon animate={{ height: isUnderScroll ? 32 : 24 }} />
           <LogoText animate={isUnderScroll ? 'scroll' : 'default'} />
@@ -94,6 +102,13 @@ const AppBar: FC = () => {
           animate={isUnderScroll ? 'scroll' : 'default'}
           className="absolute left-0 bottom-0 h-[1px] w-full bg-white20"
         />
+        <Link
+          href="/about"
+          title="About Page"
+          className="text-base text-white60 hover:text-white font-medium duration-300 ease-in-out"
+        >
+          About
+        </Link>
       </div>
     </header>
   );
