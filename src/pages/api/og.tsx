@@ -6,25 +6,26 @@ export const config = {
   runtime: 'edge'
 };
 
-// const fontBold = fetch(
-//   new URL('../../assets/switzer-bold.otf', import.meta.url)
-// ).then(res => res.arrayBuffer());
-const font = fetch(
-  'https://api.fontshare.com/v2/css?f[]=switzer@700,400&display=swap'
+const fontRegular = fetch(
+  new URL('../../assets/switzer-regular.otf', import.meta.url)
+).then(res => res.arrayBuffer());
+const fontBlack = fetch(
+  new URL('../../assets/switzer-black.otf', import.meta.url)
 ).then(res => res.arrayBuffer());
 
 export default async function handler(req: NextRequest) {
   const { searchParams } = req.nextUrl;
 
-  const postTitle = searchParams.get('title') ?? 'Not Found';
-  const postViews = parseInt(searchParams.get('views') ?? '0');
-  const postDate = format(
+  const articleTitle = searchParams.get('title') ?? 'Not Found';
+  const articleViews = parseInt(searchParams.get('views') ?? '0');
+  const articleReadtime = searchParams.get('readtime') ?? '0 min read';
+  const articleDate = format(
     new Date(searchParams.get('date' ?? '2023-01-01')),
     'MMM dd, yy'
   );
 
-  // const fontBoldData = await fontBold;
-  const fontData = await font;
+  const fontRegularData = await fontRegular;
+  const fontBlackData = await fontBlack;
 
   return new ImageResponse(
     (
@@ -45,15 +46,35 @@ export default async function handler(req: NextRequest) {
             marginLeft: 80,
             marginRight: 80,
             display: 'flex',
-            fontSize: 130,
-            fontFamily: 'Switzer',
-            fontStyle: 'bold',
-            color: '#f2f2f9',
-            lineHeight: '120px',
-            whiteSpace: 'pre-wrap'
+            flexDirection: 'column'
           }}
         >
-          {postTitle.length === 0 ? 'Not Found' : postTitle}
+          <h1
+            style={{
+              fontSize: 96,
+              fontFamily: 'Switzer - Black',
+              fontStyle: 'normal',
+              lineHeight: '80px',
+              color: '#f2f2f9',
+              whiteSpace: 'pre-wrap'
+            }}
+          >
+            {articleTitle}
+          </h1>
+          (
+          <p
+            style={{
+              fontSize: 24,
+              fontFamily: 'Switzer - Regular',
+              fontStyle: 'normal',
+              color: '#f2f2f9',
+              opacity: 0.6,
+              whiteSpace: 'pre-wrap'
+            }}
+          >
+            {articleDate} &bull; {articleReadtime} &bull; {articleViews} views
+          </p>
+          )
         </div>
       </div>
     ),
@@ -62,9 +83,16 @@ export default async function handler(req: NextRequest) {
       height: 1080,
       fonts: [
         {
-          name: 'Switzer',
-          data: fontData,
-          style: 'normal'
+          name: 'Switzer - Regular',
+          data: fontRegularData,
+          style: 'normal',
+          weight: 400
+        },
+        {
+          name: 'Switzer - Black',
+          data: fontBlackData,
+          style: 'normal',
+          weight: 900
         }
       ]
     }
