@@ -16,9 +16,14 @@ module.exports = {
       {
         userAgent: '*',
         disallow: NEXT_SSG_FILES
+      },
+      {
+        userAgent: '*',
+        allow: '/'
       }
     ]
   },
   priority: 0.9,
-  exclude: ['/api', '/auth*']
+  exclude: ['/api', '/auth*'],
+  additionalPaths: async config => [await config.transform(config, '/about')]
 };

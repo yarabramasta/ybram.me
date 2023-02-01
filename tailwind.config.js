@@ -4,11 +4,11 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        xs: '0.75rem',
-        sm: '0.875rem',
-        base: ['1rem', '150%'],
-        lg: ['1.5rem', '125%'],
-        xl: ['2.5rem', '125%']
+        xs: ['0.75rem', '120%'],
+        sm: ['0.875rem', '120%'],
+        base: ['1rem', '170%'],
+        lg: ['1.5rem', '130%'],
+        xl: ['2.5rem', '130%']
       },
       fontFamily: {
         sans: [

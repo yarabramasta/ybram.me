@@ -31,7 +31,10 @@ export const GQL_DATA_ARTICLE = `{
   updatedAt
 }`;
 
-export const gqlFetcher = (query: string, cdn = false) => {
+export const gqlFetcher = (
+  query: string,
+  cdn = process.env.NODE_ENV === 'production'
+) => {
   return hygraph(cdn).request(
     gql`
       ${query}
@@ -47,6 +50,6 @@ export const useGraphQL = <T>(
 ) => {
   return useSWR<T>(query, gqlFetcher.bind(gqlFetcher, [query, opt.cdn]), {
     fallbackData: opt.fallback,
-    refreshInterval: 10000 // 10 seconds
+    refreshInterval: 5000 // 10 seconds
   });
 };
