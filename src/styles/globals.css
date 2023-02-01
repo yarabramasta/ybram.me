@@ -4,16 +4,22 @@
 
 @layer base {
   :root {
-    --bg-color: #0a0a0c;
-    --fg-color: #f2f2f9;
-    --white85: #f2f2f9d9;
-    --white60: #f2f2f999;
-    --white40: #f2f2f966;
-    --white20: #f2f2f933;
-    --accent-color: #7400e9;
-    --danger: #e63434;
+    --color-black: #0a0a0c;
+    --color-black85: #0a0a0cd9;
+    --color-black60: #0a0a0c99;
+    --color-black40: #0a0a0c66;
+    --color-black20: #0a0a0c33;
+    --color-white: #f2f2f9;
+    --color-white85: #f2f2f9d9;
+    --color-white60: #f2f2f999;
+    --color-white40: #f2f2f966;
+    --color-white20: #f2f2f933;
+    --color-accent: #5454f1;
+    --color-accent60: #5454f199;
+    --color-accent20: #5454f133;
+    --color-danger: #e63434;
     scrollbar-width: thin;
-    scrollbar-color: var(--white40) var(--white20);
+    scrollbar-color: var(--color-white40) var(--color-white20);
   }
 
   :focus {
@@ -21,7 +27,7 @@
   }
 
   ::selection {
-    @apply bg-accent/40 text-white;
+    @apply bg-accent20 text-white;
   }
 
   ::-webkit-scrollbar {
@@ -29,11 +35,11 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--white20);
+    background: var(--color-white20);
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: var(--white40);
+    background-color: var(--color-white40);
     border-radius: 20px;
     border: 4px solid transparent;
   }
@@ -45,7 +51,7 @@
   }
 
   body {
-    @apply font-sans bg-black text-white overflow-x-hidden;
+    @apply font-sans bg-black text-white overflow-x-hidden antialiased;
     -webkit-tap-highlight-color: transparent;
   }
 

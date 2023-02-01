@@ -5,7 +5,7 @@ import Link from 'next/link';
 import CHBio from 'mod/components/CHBio.mdx';
 
 const socialIconStyle =
-  'stroke-white duration-300 ease-out group-hover:scale-105 group-active:scale-105 transition-all';
+  'stroke-white duration-300 ease-out group-hover:stroke-white group-hover:text-white group-active:scale-105 transition-all';
 
 const socialLink = {
   github: {
@@ -56,17 +56,17 @@ const Home: NextPage = () => {
             <ul className="flex flex-row gap-normal">
               <li className="w-fit group">
                 <Link title="github/yarabramasta" {...socialLink.github}>
-                  <GithubCircle className={socialIconStyle} />
+                  <GithubCircle color="#f2f2f999" className={socialIconStyle} />
                 </Link>
               </li>
               <li className="w-fit group">
                 <Link title="twitter/yarabram" {...socialLink.twitter}>
-                  <Twitter className={socialIconStyle} />
+                  <Twitter color="#f2f2f999" className={socialIconStyle} />
                 </Link>
               </li>
               <li className="w-fit group">
                 <Link title="linkedin/yara-bramasta" {...socialLink.linkedin}>
-                  <LinkedIn className={socialIconStyle} />
+                  <LinkedIn color="#f2f2f999" className={socialIconStyle} />
                 </Link>
               </li>
             </ul>
