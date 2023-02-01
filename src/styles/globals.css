@@ -51,7 +51,7 @@
   }
 
   body {
-    @apply font-sans bg-black text-white overflow-x-hidden antialiased;
+    @apply bg-black text-white overflow-x-hidden;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -81,4 +81,5 @@
 .ch-codegroup {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+  @apply font-mono;
 }
