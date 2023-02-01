@@ -105,7 +105,7 @@ const AppBar: FC = () => {
         <Link
           href="/about"
           title="About Page"
-          className="text-sm text-white60 hover:text-white duration-300 ease-in-out"
+          className="text-base text-white60 hover:text-white font-medium duration-300 ease-in-out"
         >
           About
         </Link>

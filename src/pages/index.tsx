@@ -1,51 +1,9 @@
-import { GithubCircle, LinkedIn, Twitter } from 'iconoir-react';
 import type { NextPage } from 'next';
-import Link from 'next/link';
 
-import CHBio from 'mod/components/CHBio.mdx';
+import BioJSON from 'mod/components/bio_json.mdx';
 import Container from 'mod/components/container';
-
-const socialIconStyle =
-  'stroke-white duration-300 ease-out group-hover:stroke-white group-hover:text-white group-active:scale-105 transition-all';
-
-const socialLink = {
-  github: {
-    href: 'https://github.com/yarabramasta',
-    rel: 'noopener noreferrer',
-    target: '_blank'
-  },
-  twitter: {
-    href: 'https://twitter.com/yarabram',
-    rel: 'noopener noreferrer',
-    target: '_blank'
-  },
-  linkedin: {
-    href: 'https://www.linkedin.com/in/yara-bramasta-a1b711263',
-    rel: 'noopener noreferrer',
-    target: '_blank'
-  }
-};
-
-const fyiCardStyle =
-  'h-full overflow-hidden flex flex-col p-component duration-300 ease-in-out border border-white20 w-full rounded-md';
-
-const fyiLink = {
-  unmer: {
-    href: 'https://unmer.ac.id',
-    rel: 'noopener noreferrer',
-    target: '_blank'
-  },
-  retgoo: {
-    href: 'https://www.retgoo.id',
-    rel: 'noopener noreferrer',
-    target: '_blank'
-  },
-  grafika: {
-    href: 'https://smkn4malang.sch.id',
-    rel: 'noopener noreferrer',
-    target: '_blank'
-  }
-};
+import FYISectionHome from 'mod/components/fyi_section_home';
+import SocialCTA, { socialLinks } from 'mod/components/social_cta';
 
 const Home: NextPage = () => {
   return (
@@ -55,21 +13,13 @@ const Home: NextPage = () => {
           <div className="flex flex-col-reverse md:flex-row w-full md:items-baseline md:justify-between gap-component">
             <h1 className="text-xl font-bold">Yara Bramasta</h1>
             <ul className="flex flex-row gap-normal">
-              <li className="w-fit group">
-                <Link title="github/yarabramasta" {...socialLink.github}>
-                  <GithubCircle color="#f2f2f999" className={socialIconStyle} />
-                </Link>
-              </li>
-              <li className="w-fit group">
-                <Link title="twitter/yarabram" {...socialLink.twitter}>
-                  <Twitter color="#f2f2f999" className={socialIconStyle} />
-                </Link>
-              </li>
-              <li className="w-fit group">
-                <Link title="linkedin/yara-bramasta" {...socialLink.linkedin}>
-                  <LinkedIn color="#f2f2f999" className={socialIconStyle} />
-                </Link>
-              </li>
+              {socialLinks.map(({ icon, linkProps }) => (
+                <SocialCTA
+                  key={linkProps.title}
+                  linkProps={{ ...linkProps }}
+                  icon={icon}
+                />
+              ))}
             </ul>
           </div>
           <h2 className="font-medium text-base text-white85">
@@ -82,47 +32,9 @@ const Home: NextPage = () => {
         </p>
       </section>
       <section className="mb-section">
-        <CHBio />
+        <BioJSON />
       </section>
-      <section className="flex flex-col gap-component w-full mb-section">
-        <div className="flex flex-col md:flex-row gap-component">
-          <div className={fyiCardStyle}>
-            <p>
-              <span className="text-white60">Currently a student at </span>
-              <span className="text-white85 font-medium hover:underline">
-                <Link title="Universitas Merdeka Malang" {...fyiLink.unmer}>
-                  University of Merdeka Malang
-                </Link>
-              </span>
-              .
-            </p>
-          </div>
-          <div className={fyiCardStyle}>
-            <p>
-              <span className="text-white60">Former intern at </span>
-              <span className="text-white85 font-medium hover:underline">
-                <Link title="PT. RetGoo Sentris Informa" {...fyiLink.retgoo}>
-                  RetGoo Sentris Informa
-                </Link>
-              </span>
-              .
-            </p>
-          </div>
-        </div>
-        <div className={fyiCardStyle}>
-          <p>
-            <span className="text-white60">Alumni from the 2022 class of </span>
-            <span className="text-white85 font-medium hover:underline">
-              <Link title="SMK Negeri 4 Malang" {...fyiLink.grafika}>
-                SMKN 4 Malang
-              </Link>
-            </span>
-            <span className="text-white60">
-              &apos;s software engineering major.
-            </span>
-          </p>
-        </div>
-      </section>
+      <FYISectionHome />
     </Container>
   );
 };
