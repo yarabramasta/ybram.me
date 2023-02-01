@@ -17,14 +17,20 @@ module.exports = {
         ]
       },
       colors: {
-        black: '#0a0a0c',
-        white: '#f2f2f9',
-        white85: '#f2f2f9d9',
-        white60: '#f2f2f9b3',
-        white40: '#f2f2f966',
-        white20: '#f2f2f933',
-        accent: '#7400e9',
-        red: '#e63434'
+        black: 'var(--color-black)',
+        black85: 'var(--color-black85)',
+        black60: 'var(--color-black60)',
+        black40: 'var(--color-black40)',
+        black20: 'var(--color-black20)',
+        white: 'var(--color-white)',
+        white85: 'var(--color-white85)',
+        white60: 'var(--color-white60)',
+        white40: 'var(--color-white40)',
+        white20: 'var(--color-white20)',
+        accent: 'var(--color-accent)',
+        accent60: 'var(--color-accent60)',
+        accent20: 'var(--color-accent20)',
+        red: 'var(--color-danger)'
       },
       spacing: {
         text: '0.5rem',
@@ -61,10 +67,10 @@ module.exports = {
               color: theme('colors.white60')
             },
             a: {
-              color: theme('colors.accent'),
+              color: theme('colors.accent60'),
               fontWeight: '500',
               '&:hover': {
-                filter: 'brightness(110%)',
+                color: theme('colors.accent'),
                 textDecoration: 'underline'
               }
             }

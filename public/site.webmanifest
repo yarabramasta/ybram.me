@@ -3,8 +3,8 @@
   "name": "Yara Bramasta",
   "short_name": "ybram",
   "start_url": ".",
-  "theme_color": "#F2F2F9",
-  "background_color": "#0A0A0C",
+  "theme_color": "#f2f2f9",
+  "background_color": "#0a0a0c",
   "display": "standalone",
   "description": "A college student & mobile app developer from Indonesia.",
   "icons": [
