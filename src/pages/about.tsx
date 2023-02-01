@@ -61,7 +61,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const body = await serialize(article['body'], {
     parseFrontmatter: false,
     mdxOptions: {
-      remarkPlugins: [remarmGfm],
+      remarkPlugins: [remarkGfm],
       rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
     }
   });
