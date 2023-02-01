@@ -59,13 +59,21 @@ const LogoText: FC<{ animate: AnimationProps['animate'] }> = ({ animate }) => {
 const barStroke = {
   default: {
     width: 0,
-    opacity: 0
+    opacity: 0,
+    transition: {
+      ease: [0.16, 1, 0.3, 1],
+      duration: 0.5,
+      width: {
+        delay: 0.1
+      }
+    }
   },
   scroll: {
     width: '100%',
     opacity: 1,
     transition: {
       ease: [0.16, 1, 0.3, 1],
+      duration: 0.5,
       width: {
         delay: 0.1
       }

@@ -21,7 +21,7 @@ const nextConfig = withMDX({
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['bucket.ybram.my.id']
+    domains: ['bucket.ybram.my.id', 'media.graphassets.com']
   },
   async redirects() {
     return [

@@ -29,6 +29,7 @@ module.exports = {
         white20: 'var(--color-white20)',
         accent: 'var(--color-accent)',
         accent60: 'var(--color-accent60)',
+        accent40: 'var(--color-accent40)',
         accent20: 'var(--color-accent20)',
         red: 'var(--color-danger)'
       },

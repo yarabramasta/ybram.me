@@ -1,7 +1,7 @@
 import { DefaultSeoProps } from 'next-seo';
 
 const SITE_URL = process.env.SITE_URL ?? 'https://ybram.me';
-const OG_IMAGE_URL = `${SITE_URL}/images/og.jpg`;
+const OG_IMAGE_URL = 'https://media.graphassets.com/CFNnQCOlTyiutEjZ0yLT';
 const OG_TITLE = 'Yara Bramasta';
 const OG_DESCRIPTION =
   'A passionate software developer from Indonesia, focusing on mobile app development.';
