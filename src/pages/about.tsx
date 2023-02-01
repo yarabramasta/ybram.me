@@ -29,7 +29,7 @@ const About: NextPage = ({ data }: any) => {
         </div>
         <MDX body={data['body']} />
         <div className="flex flex-col items-center justify-start mt-16 w-full gap-component">
-          <div className="flex flex-row gap-text items-center justify-center">
+          <div className="flex flex-row gap-text items-center justify-center w-full">
             <div className="rounded-full overflow-hidden max-w-fit">
               <Image
                 src={data['author']['avatar']['url']}
@@ -38,7 +38,7 @@ const About: NextPage = ({ data }: any) => {
                 height={32}
               />
             </div>
-            <h3 className="text-base text-white85 font-medium">
+            <h3 className="text-base text-white85 font-medium text-center">
               {data['author']['name']}
             </h3>
           </div>
