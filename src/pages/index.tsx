@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import Link from 'next/link';
 
 import CHBio from 'mod/components/CHBio.mdx';
+import Container from 'mod/components/Container';
 
 const socialIconStyle =
   'stroke-white duration-300 ease-out group-hover:stroke-white group-hover:text-white group-active:scale-105 transition-all';
@@ -48,7 +49,7 @@ const fyiLink = {
 
 const Home: NextPage = () => {
   return (
-    <div className="max-w-[640px] mx-auto p-normal">
+    <Container>
       <section className="flex flex-col mb-section gap-component">
         <div className="flex flex-col gap-text">
           <div className="flex flex-col-reverse md:flex-row w-full md:items-baseline md:justify-between gap-component">
@@ -122,7 +123,7 @@ const Home: NextPage = () => {
           </p>
         </div>
       </section>
-    </div>
+    </Container>
   );
 };
 

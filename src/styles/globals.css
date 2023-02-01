@@ -49,6 +49,7 @@
   body {
     @apply w-screen h-full min-h-screen;
     min-height: -webkit-fill-available !important;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -73,6 +74,10 @@
   p {
     line-height: 150%;
   }
+
+  a {
+    @apply outline-none;
+  }
 }
 
 #__next {
@@ -83,4 +88,36 @@
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   @apply font-mono;
+}
+
+.prose .anchor {
+  @apply absolute invisible no-underline;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose .anchor:after {
+  @apply text-white40;
+  content: '#';
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
+.prose .tweet a {
+  text-decoration: inherit;
+  font-weight: inherit;
+}
+
+.prose .callout > p {
+  margin: 0 !important;
 }

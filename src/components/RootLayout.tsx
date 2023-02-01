@@ -4,7 +4,7 @@ import type { FC } from 'react';
 import AppBar from './AppBar';
 import Footer from './Footer';
 
-const Layout: FC<{ fontFamily: NextFontWithVariable }> = ({
+const RootLayout: FC<{ fontFamily: NextFontWithVariable }> = ({
   children,
   fontFamily: switzer
 }) => {
@@ -19,4 +19,4 @@ const Layout: FC<{ fontFamily: NextFontWithVariable }> = ({
   );
 };
 
-export default Layout;
+export default RootLayout;

@@ -39,45 +39,17 @@ module.exports = {
         component: '1.5rem',
         normal: '2rem'
       },
-      typography: theme => ({
-        DEFAULT: {
+      typography: {
+        quoteless: {
           css: {
-            color: theme('colors.white60'),
-            h1: {
-              color: theme('colors.white')
-            },
-            h2: {
-              color: theme('colors.white')
-            },
-            h3: {
-              color: theme('colors.white')
-            },
-            h4: {
-              color: theme('colors.white')
-            },
-            h5: {
-              color: theme('colors.white')
-            },
-            h6: {
-              color: theme('colors.white')
-            },
-            strong: {
-              color: theme('colors.white85')
-            },
-            p: {
-              color: theme('colors.white60')
-            },
-            a: {
-              color: theme('colors.accent60'),
-              fontWeight: '500',
-              '&:hover': {
-                color: theme('colors.accent'),
-                textDecoration: 'underline'
-              }
-            }
+            'blockquote p:first-of-type::before': { content: 'none' },
+            'blockquote p:first-of-type::after': { content: 'none' }
           }
         }
-      })
+      }
+    },
+    future: {
+      hoverOnlyWhenSupported: true
     }
   },
   plugins: [require('@tailwindcss/typography')]

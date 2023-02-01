@@ -1,22 +1,19 @@
-const { remarkCodeHike } = require('@code-hike/mdx');
-const theme = require('shiki/themes/poimandres.json');
+import { remarkCodeHike } from '@code-hike/mdx';
+import nextMdx from '@next/mdx';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
+import remarkGfm from 'remark-gfm';
 
-const withMDX = require('@next/mdx')({
+import theme from './poimandres.js';
+
+const withMDX = nextMdx({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [
-      [
-        remarkCodeHike,
-        {
-          theme,
-          lineNumbers: true
-        }
-      ]
-    ]
+    remarkPlugins: [remarkGfm, [remarkCodeHike, { theme, lineNumbers: true }]],
+    rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
   }
 });
 
-/** @type {import('next').NextConfig} */
 const nextConfig = withMDX({
   reactStrictMode: true,
   swcMinify: true,
@@ -44,4 +41,4 @@ const nextConfig = withMDX({
   }
 });
 
-module.exports = nextConfig;
+export default nextConfig;

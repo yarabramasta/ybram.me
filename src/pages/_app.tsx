@@ -10,7 +10,7 @@ import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import type { FC } from 'react';
 
-import Layout from 'mod/components/Layout';
+import RootLayout from 'mod/components/RootLayout';
 import defaultSeoConfig from 'mod/lib/next-seo.config';
 
 const Head: FC = () => (
@@ -43,9 +43,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head />
-      <Layout fontFamily={switzer}>
+      <RootLayout fontFamily={switzer}>
         <Component {...pageProps} />
-      </Layout>
+      </RootLayout>
       <Analytics />
     </>
   );
