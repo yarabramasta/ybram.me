@@ -1,21 +1,17 @@
-import { remarkCodeHike } from '@code-hike/mdx';
 import format from 'date-fns/format';
 import type { GetStaticProps, NextPage } from 'next';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import readingTime from 'reading-time';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
-import theme from 'shiki/themes/poimandres.json';
 
 import Container from 'mod/components/container';
+import MDX from 'mod/components/mdx';
 import { gqlFetcher, GQL_DATA_ARTICLE } from 'mod/lib/graphql_fetcher';
 import { articleSeoConfig } from 'mod/lib/next-seo.config';
-
-const MDX: any = dynamic(() => import('../components/mdx'), { ssr: false });
 
 const About: NextPage = ({ data }: any) => {
   return (
@@ -33,7 +29,7 @@ const About: NextPage = ({ data }: any) => {
         </div>
         <MDX body={data['body']} />
         <div className="flex flex-col items-center justify-start mt-16 w-full gap-component">
-          <div className="flex flex-row gap-text items-center justify-center">
+          <div className="flex flex-row gap-text items-center justify-center w-full">
             <div className="rounded-full overflow-hidden max-w-fit">
               <Image
                 src={data['author']['avatar']['url']}
@@ -42,7 +38,7 @@ const About: NextPage = ({ data }: any) => {
                 height={32}
               />
             </div>
-            <h3 className="text-base text-white85 font-medium">
+            <h3 className="text-base text-white85 font-medium text-center">
               {data['author']['name']}
             </h3>
           </div>
@@ -58,7 +54,6 @@ const About: NextPage = ({ data }: any) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  // const { article } = await apiFetcher('/article?slug=about');
   const { article } = await gqlFetcher(
     `{ article(where: {slug: "about"}, stage: PUBLISHED) ${GQL_DATA_ARTICLE} }`
   );
@@ -66,11 +61,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const body = await serialize(article['body'], {
     parseFrontmatter: false,
     mdxOptions: {
-      useDynamicImport: true,
-      remarkPlugins: [
-        remarkGfm,
-        [remarkCodeHike, { theme, lineNumbers: false, autoImport: false }]
-      ],
+      remarkPlugins: [remarkGfm],
       rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
     }
   });
