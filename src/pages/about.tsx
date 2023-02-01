@@ -9,31 +9,16 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import theme from 'shiki/themes/poimandres.json';
 
-import Container from 'mod/components/Container';
+import Container from 'mod/components/container';
 import { apiFetcher } from 'mod/lib/api_fetcher';
-import { getInternalUrl } from 'mod/lib/utils';
+import { articleSeoConfig } from 'mod/lib/next-seo.config';
 
-const MDX: any = dynamic(() => import('../components/MDX'), { ssr: false });
+const MDX: any = dynamic(() => import('../components/mdx'), { ssr: false });
 
 const About: NextPage = ({ data }: any) => {
   return (
     <>
-      <NextSeo
-        title={data['title']}
-        description={data['description']}
-        openGraph={{
-          images: [
-            {
-              url: getInternalUrl(
-                `/api/og${encodeURIComponent(
-                  `?title=${data['title']}&views${data['views']}&readtime${data['readtime']}&data=${data['publishedAt']}`
-                )}`
-              ).toString(),
-              alt: data['excerpt'] ?? data['description']
-            }
-          ]
-        }}
-      />
+      <NextSeo {...articleSeoConfig(data, false)} />
       <Container>
         <div className="mb-section">
           <h1 className="text-xl font-bold">About</h1>
@@ -46,6 +31,7 @@ const About: NextPage = ({ data }: any) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const { article } = await apiFetcher('/article?slug=about');
+
   const body = await serialize(article['body'], {
     parseFrontmatter: false,
     mdxOptions: {
@@ -57,14 +43,15 @@ export const getStaticProps: GetStaticProps = async () => {
       rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
     }
   });
-  const readtime = readingTime(article['body']);
+
+  const { text } = readingTime(article['body']);
 
   return {
     props: {
       data: {
         ...article,
         body,
-        readtime
+        readtime: text
       }
     },
     revalidate: 2

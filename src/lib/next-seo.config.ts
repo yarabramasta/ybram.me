@@ -1,4 +1,5 @@
 import { DefaultSeoProps } from 'next-seo';
+import { getOGImageUrl } from './utils';
 
 const SITE_URL = process.env.SITE_URL ?? 'https://ybram.me';
 const OG_IMAGE_URL = 'https://media.graphassets.com/CFNnQCOlTyiutEjZ0yLT';
@@ -22,11 +23,9 @@ const defaultSeoConfig: DefaultSeoProps = {
     locale: 'en',
     url: SITE_URL,
     siteName: OG_TITLE,
-    defaultImageWidth: 1920,
-    defaultImageHeight: 1080,
-    description: OG_DESCRIPTION,
     title: OG_TITLE,
-    images: [{ url: OG_IMAGE_URL, alt: OG_DESCRIPTION }]
+    description: OG_DESCRIPTION,
+    images: [{ url: OG_IMAGE_URL }]
   },
   twitter: {
     handle: '@yarabram',
@@ -66,10 +65,29 @@ const defaultSeoConfig: DefaultSeoProps = {
       name: 'google-site-verification',
       content: 'g5Jypw7qhL9rKyiZ4-7hqifydSaFcO3REmVeyd2qij0'
     },
-    { property: 'twitter:title', content: OG_TITLE },
-    { property: 'twitter:description', content: OG_DESCRIPTION },
     { property: 'twitter:image', content: OG_IMAGE_URL }
   ]
+};
+
+export const articleSeoConfig = (data: any, prefix = true) => {
+  return {
+    title: data['title'],
+    description: data['description'],
+    openGraph: {
+      description: data['excerpt'],
+      article: {
+        authors: [data['author']['name']],
+        publishedTime: data['publishedAt'],
+        modifiedTime: data['updatedAt']
+      },
+      url: `${SITE_URL}/${prefix ? '/blog' : ''}${data['slug']}`,
+      images: [{ url: getOGImageUrl(data) }]
+    },
+    additionalMetaTags: [
+      { property: 'twitter:description', content: data['excerpt'] },
+      { property: 'twitter:image', content: getOGImageUrl(data) }
+    ]
+  };
 };
 
 export default defaultSeoConfig;

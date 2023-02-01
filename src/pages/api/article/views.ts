@@ -1,6 +1,6 @@
 import type { NextApiHandler } from 'next';
 
-import gqlFetcher from 'mod/lib/graphql_fetcher';
+import { gqlFetcher } from 'mod/lib/graphql_fetcher';
 
 const handler: NextApiHandler = async (req, res) => {
   const { searchParams } = new URL(

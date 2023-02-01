@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import Link from 'next/link';
 
 import CHBio from 'mod/components/CHBio.mdx';
-import Container from 'mod/components/Container';
+import Container from 'mod/components/container';
 
 const socialIconStyle =
   'stroke-white duration-300 ease-out group-hover:stroke-white group-hover:text-white group-active:scale-105 transition-all';

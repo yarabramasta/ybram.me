@@ -1,8 +1,8 @@
 import type { NextFontWithVariable } from '@next/font';
 import type { FC } from 'react';
 
-import AppBar from './AppBar';
-import Footer from './Footer';
+import AppBar from './appbar';
+import Footer from './footer';
 
 const RootLayout: FC<{ fontFamily: NextFontWithVariable }> = ({
   children,

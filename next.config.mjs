@@ -4,7 +4,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 
-import theme from './poimandres.js';
+import theme from './scripts/poimandres.js';
 
 const withMDX = nextMdx({
   extension: /\.mdx?$/,
