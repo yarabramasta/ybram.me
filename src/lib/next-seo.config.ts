@@ -1,11 +1,16 @@
 import { DefaultSeoProps } from 'next-seo';
 
+const SITE_URL = process.env.SITE_URL ?? 'https://ybram.me';
+const OG_IMAGE_URL = `${SITE_URL}/images/og.jpg`;
+const OG_TITLE = 'Yara Bramasta';
+const OG_DESCRIPTION =
+  'A passionate software developer from Indonesia, focusing on mobile app development.';
+
 const defaultSeoConfig: DefaultSeoProps = {
-  canonical: 'https://www.ybram.me/',
-  defaultTitle: 'Yara Bramasta',
+  canonical: SITE_URL,
+  defaultTitle: OG_TITLE,
   titleTemplate: '%s • Yara Bramasta',
-  description:
-    'A passionate software developer from Indonesia, focusing on mobile app development.',
+  description: OG_DESCRIPTION,
   themeColor: '#0a0a0c',
   robotsProps: {
     maxSnippet: -1,
@@ -15,19 +20,13 @@ const defaultSeoConfig: DefaultSeoProps = {
   openGraph: {
     type: 'website',
     locale: 'en',
-    url: 'https://www.ybram.me/',
-    siteName: 'Yara Bramasta',
+    url: SITE_URL,
+    siteName: OG_TITLE,
     defaultImageWidth: 1920,
     defaultImageHeight: 1080,
-    description:
-      'A passionate software developer from Indonesia, focusing on mobile app development.',
-    title: 'Yara Bramasta',
-    images: [
-      {
-        url: '/images/og.jpg',
-        alt: 'A passionate software developer from Indonesia, focusing on mobile app development.'
-      }
-    ]
+    description: OG_DESCRIPTION,
+    title: OG_TITLE,
+    images: [{ url: OG_IMAGE_URL, alt: OG_DESCRIPTION }]
   },
   twitter: {
     handle: '@yarabram',
@@ -52,10 +51,7 @@ const defaultSeoConfig: DefaultSeoProps = {
       sizes: '16x16',
       href: '/icon/favicon-16x16.png'
     },
-    {
-      rel: 'manifest',
-      href: '/site.webmanifest'
-    }
+    { rel: 'manifest', href: '/site.webmanifest' }
   ],
   additionalMetaTags: [
     {
@@ -70,21 +66,9 @@ const defaultSeoConfig: DefaultSeoProps = {
       name: 'google-site-verification',
       content: 'g5Jypw7qhL9rKyiZ4-7hqifydSaFcO3REmVeyd2qij0'
     },
-    {
-      property: 'twitter:title',
-      content: 'Yara Bramasta'
-    },
-    {
-      property: 'twitter:description',
-      content:
-        'A passionate software developer from Indonesia, focusing on mobile app development.'
-    },
-    {
-      property: 'twitter:image',
-      content: `${
-        process.env.NODE_ENV === 'production' ? 'https://ybram.me' : ''
-      }/images/og.jpg`
-    }
+    { property: 'twitter:title', content: OG_TITLE },
+    { property: 'twitter:description', content: OG_DESCRIPTION },
+    { property: 'twitter:image', content: OG_IMAGE_URL }
   ]
 };
 
