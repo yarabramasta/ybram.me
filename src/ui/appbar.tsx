@@ -92,7 +92,6 @@ const AppBar: FC = () => {
               onClick={() => {
                 if (scroll) {
                   setScroll(false);
-                  window.scrollTo(0, 0);
                 }
                 toggle();
               }}
