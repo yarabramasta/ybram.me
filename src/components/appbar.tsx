@@ -5,7 +5,8 @@ import {
   useScroll
 } from 'framer-motion';
 import Link from 'next/link';
-import { useState, type FC } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useState, type FC } from 'react';
 
 const LogoIcon: FC<{ animate: AnimationProps['animate'] }> = ({ animate }) => {
   return (
@@ -81,9 +82,51 @@ const barStroke = {
   }
 };
 
+// Define general type for useWindowSize hook, which includes width and height
+interface Size {
+  width: number | undefined;
+  height: number | undefined;
+}
+
+// Hook
+function useWindowSize(): Size {
+  // Initialize state with undefined width/height so server and client renders match
+  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const [windowSize, setWindowSize] = useState<Size>({
+    width: undefined,
+    height: undefined
+  });
+
+  useEffect(() => {
+    // Handler to call on window resize
+    function handleResize() {
+      // Set window width/height to state
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    }
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); // Empty array ensures that effect is only run on mount
+
+  return windowSize;
+}
+
 const AppBar: FC = () => {
-  const { scrollY } = useScroll();
+  const { width } = useWindowSize();
+
+  const router = useRouter();
+
   const [isUnderScroll, setIsUnderScroll] = useState(false);
+  const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, 'change', latest => {
     setIsUnderScroll(latest >= 5);
@@ -100,15 +143,58 @@ const AppBar: FC = () => {
           initial={false}
           variants={barStroke}
           animate={isUnderScroll ? 'scroll' : 'default'}
-          className="absolute left-0 bottom-0 h-[1px] w-full bg-white20"
+          className="absolute left-0 bottom-0 h-[2px] w-full bg-white20"
         />
-        <Link
-          href="/about"
-          title="About Page"
-          className="text-base text-white60 hover:text-white font-medium duration-300 ease-in-out"
-        >
-          About
-        </Link>
+        {width > 768 && (
+          <ul className="flex items-center flex-row justify-end gap-component">
+            <li className="w-full group cursor-pointer">
+              <Link
+                href="/"
+                title="Home Page"
+                className={`${
+                  router.pathname === '/' ? 'text-white' : 'text-white60'
+                } text-base text-white60 w-full h-full group-hover:text-white duration-300 ease-in-out`}
+              >
+                Home
+              </Link>
+            </li>
+            <li className="w-full group cursor-pointer">
+              <Link
+                href="/about"
+                title="About Page"
+                className={`${
+                  router.pathname === '/about' ? 'text-white' : 'text-white60'
+                } text-base text-white60 w-full h-full group-hover:text-white duration-300 ease-in-out`}
+              >
+                About
+              </Link>
+            </li>
+            <li className="w-full group cursor-pointer">
+              <Link
+                href="/blog"
+                title="Blog Page"
+                className={`${
+                  router.pathname === '/blog' ? 'text-white' : 'text-white60'
+                } text-base text-white60 w-full h-full group-hover:text-white duration-300 ease-in-out`}
+              >
+                Blog
+              </Link>
+            </li>
+            <li className="w-full group cursor-pointer">
+              <Link
+                href="/guestbook"
+                title="Guestbook Page"
+                className={`${
+                  router.pathname === '/guestbook'
+                    ? 'text-white'
+                    : 'text-white60'
+                } text-base w-full h-full group-hover:text-white duration-300 ease-in-out`}
+              >
+                Guestbook
+              </Link>
+            </li>
+          </ul>
+        )}
       </div>
     </header>
   );

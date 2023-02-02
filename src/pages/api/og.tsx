@@ -21,7 +21,7 @@ export default async function handler(req: NextRequest) {
   const articleReadtime = searchParams.get('readtime') ?? '0 min read';
   const articleDate = format(
     new Date(searchParams.get('date' ?? '2023-01-01')),
-    'MMM dd, yyyy'
+    'MMMM dd, yyyy'
   );
 
   const fontRegularData = await fontRegular;

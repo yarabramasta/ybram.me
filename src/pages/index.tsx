@@ -28,7 +28,7 @@ const Home: NextPage = () => {
         </div>
         <p className="text-white60 text-base">
           A passionate software developer from Indonesia, focusing on mobile app
-          development with Flutter as main tool since 2021.
+          development.
         </p>
       </section>
       <section className="mb-section">
