@@ -74,7 +74,7 @@ export const articleSeoConfig = (data: any, prefix = true) => {
     title: data['title'],
     description: data['description'],
     openGraph: {
-      description: data['excerpt'],
+      description: data['description'],
       article: {
         authors: [data['author']['name']],
         publishedTime: data['publishedAt'],
@@ -84,7 +84,6 @@ export const articleSeoConfig = (data: any, prefix = true) => {
       images: [{ url: getOGImageUrl(data) }]
     },
     additionalMetaTags: [
-      { property: 'twitter:description', content: data['excerpt'] },
       { property: 'twitter:image', content: getOGImageUrl(data) }
     ]
   };

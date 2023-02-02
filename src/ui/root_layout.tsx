@@ -1,8 +1,10 @@
 import type { NextFontWithVariable } from '@next/font';
+import dynamic from 'next/dynamic';
 import type { FC, PropsWithChildren } from 'react';
 
-import AppBar from './appbar';
 import Footer from './footer';
+
+const AppBar = dynamic(() => import('./appbar'), { ssr: false });
 
 const RootLayout: FC<
   PropsWithChildren<{ fontFamily: NextFontWithVariable }>

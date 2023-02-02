@@ -1,5 +1,4 @@
 import { gql, GraphQLClient } from 'graphql-request';
-import useSWR from 'swr';
 
 const hygraph = (cdn: boolean) =>
   new GraphQLClient(
@@ -40,16 +39,4 @@ export const gqlFetcher = (
       ${query}
     `
   );
-};
-
-export const useGraphQL = <T>(
-  query: string,
-  opt: { fallback?: any; cdn: boolean } = {
-    cdn: process.env.NODE_ENV === 'production'
-  }
-) => {
-  return useSWR<T>(query, gqlFetcher.bind(gqlFetcher, [query, opt.cdn]), {
-    fallbackData: opt.fallback,
-    refreshInterval: 5000 // 10 seconds
-  });
 };

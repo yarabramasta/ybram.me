@@ -14,7 +14,7 @@ const SocialCard: FC<{ linkProps: any; icon: any }> = ({ linkProps, icon }) => {
       <div className="flex flex-row w-full gap-component border border-white20 px-component py-text group-hover:bg-white04 duration-300 ease-in-out rounded-md items-center justify-between">
         <div className="flex flex-grow flex-row gap-text items-center justify-start">
           {icon}
-          <p className="text-white85 text-sm">Twitter</p>
+          <p className="text-white85 text-sm">{linkProps['title']}</p>
         </div>
         <ArrowRight
           height={18}

@@ -1,7 +1,7 @@
 import { CH } from '@code-hike/mdx/components';
 import { MDXRemote } from 'next-mdx-remote';
 import Link from 'next/link';
-import type { FC } from 'react';
+import { type FC } from 'react';
 
 const CustomLink = (props: any) => {
   const href = props.href;
@@ -27,7 +27,7 @@ const components = { CH, SpotifyNow, a: CustomLink };
 
 const MDX: FC<{ body: any }> = ({ body }) => {
   return (
-    <article className="prose prose-headings:text-white prose-headings:font-bold prose-a:text-accent prose-a:duration-300 prose-a:ease-in-out prose-p:text-white85 prose-a:no-underline hover:prose-a:underline prose-hr:border-white20 prose-p:text-base prose-quoteless">
+    <article className="prose prose-headings:text-white prose-headings:font-bold prose-a:text-accent prose-a:duration-300 prose-a:ease-in-out prose-p:text-white85 prose-a:no-underline hover:prose-a:underline prose-a:font-normal prose-hr:border-white20 prose-p:text-base prose-quoteless pb-section">
       <MDXRemote {...body} components={{ ...components }} />
     </article>
   );
