@@ -2,6 +2,8 @@ import { ImageResponse } from '@vercel/og';
 import format from 'date-fns/format';
 import { NextRequest } from 'next/server';
 
+import { getInternalUrl } from 'mod/lib/utils';
+
 export const config = {
   runtime: 'edge'
 };
@@ -21,7 +23,7 @@ export default async function handler(req: NextRequest) {
   const articleReadtime = searchParams.get('readtime') ?? '0 min read';
   const articleDate = format(
     new Date(searchParams.get('date' ?? '2023-01-01')),
-    'MMM dd, yyyy'
+    'MMMM dd, yyyy'
   );
 
   const fontRegularData = await fontRegular;
@@ -37,8 +39,9 @@ export default async function handler(req: NextRequest) {
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          backgroundImage:
-            'url(https://media.graphassets.com/zuuIGXUwRJ6kWtNeZTiz)'
+          backgroundImage: `url(${getInternalUrl(
+            '/images/og-article-template.png'
+          ).toString()})`
         }}
       >
         <div

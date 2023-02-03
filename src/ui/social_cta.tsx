@@ -11,7 +11,7 @@ export const socialLinks = [
       href: 'https://github.com/yarabramasta',
       rel: 'noopener noreferrer',
       target: '_blank',
-      title: 'github/yarabramasta'
+      title: 'Github'
     },
     icon: <GithubCircle color="#f2f2f999" className={socialIconStyle} />
   },
@@ -20,7 +20,7 @@ export const socialLinks = [
       href: 'https://twitter.com/yarabram',
       rel: 'noopener noreferrer',
       target: '_blank',
-      title: 'twitter/yarabram'
+      title: 'Twitter'
     },
     icon: <Twitter color="#f2f2f999" className={socialIconStyle} />
   },
@@ -29,7 +29,7 @@ export const socialLinks = [
       href: 'https://www.linkedin.com/in/yara-bramasta-a1b711263',
       rel: 'noopener noreferrer',
       target: '_blank',
-      title: 'linkedin/yara-bramasta'
+      title: 'LinkedIn'
     },
     icon: <LinkedIn color="#f2f2f999" className={socialIconStyle} />
   }

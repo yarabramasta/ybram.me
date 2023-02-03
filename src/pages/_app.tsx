@@ -10,8 +10,8 @@ import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import type { FC } from 'react';
 
-import RootLayout from 'mod/components/root_layout';
 import defaultSeoConfig from 'mod/lib/next-seo.config';
+import RootLayout from 'mod/ui/root_layout';
 
 const Head: FC = () => (
   <>

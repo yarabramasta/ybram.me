@@ -1,8 +1,8 @@
 import { DefaultSeoProps } from 'next-seo';
-import { getOGImageUrl } from './utils';
+import { getInternalUrl, getOGImageUrl } from './utils';
 
 const SITE_URL = process.env.SITE_URL ?? 'https://ybram.me';
-const OG_IMAGE_URL = 'https://media.graphassets.com/CFNnQCOlTyiutEjZ0yLT';
+const OG_IMAGE_URL = getInternalUrl('/images/og.jpg').toString();
 const OG_TITLE = 'Yara Bramasta';
 const OG_DESCRIPTION =
   'A passionate software developer from Indonesia, focusing on mobile app development.';
@@ -74,7 +74,7 @@ export const articleSeoConfig = (data: any, prefix = true) => {
     title: data['title'],
     description: data['description'],
     openGraph: {
-      description: data['excerpt'],
+      description: data['description'],
       article: {
         authors: [data['author']['name']],
         publishedTime: data['publishedAt'],
@@ -84,7 +84,6 @@ export const articleSeoConfig = (data: any, prefix = true) => {
       images: [{ url: getOGImageUrl(data) }]
     },
     additionalMetaTags: [
-      { property: 'twitter:description', content: data['excerpt'] },
       { property: 'twitter:image', content: getOGImageUrl(data) }
     ]
   };

@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
 
-import BioJSON from 'mod/components/bio_json.mdx';
-import Container from 'mod/components/container';
-import FYISectionHome from 'mod/components/fyi_section_home';
-import SocialCTA, { socialLinks } from 'mod/components/social_cta';
+import BioJSON from 'mod/ui/bio_json.mdx';
+import Container from 'mod/ui/container';
+import FYISectionHome from 'mod/ui/fyi_section_home';
+import SocialCTA, { socialLinks } from 'mod/ui/social_cta';
 
 const Home: NextPage = () => {
   return (
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
         </div>
         <p className="text-white60 text-base">
           A passionate software developer from Indonesia, focusing on mobile app
-          development with Flutter as main tool since 2021.
+          development.
         </p>
       </section>
       <section className="mb-section">
