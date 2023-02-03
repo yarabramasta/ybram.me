@@ -25,7 +25,7 @@ const MenuDropdown: FC<{ open: boolean }> = ({ open }) => {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed z-20 w-full h-full top-[64px] left-0 bg-black85 backdrop-blur-sm"
+          className="fixed z-20 w-full h-full top-[64px] left-0 bg-black40 backdrop-blur-sm"
           variants={dropdown}
           initial="close"
           animate="open"

@@ -50,23 +50,13 @@ export const useGraphQL = <T>(
 ) => {
   return useSWR<T>(query, gqlFetcher.bind(gqlFetcher, [query, opt.cdn]), {
     fallbackData: opt.fallback,
-    refreshInterval: 5000 // 10 seconds
+    refreshInterval: 10000
   });
 };
 
-export const useAPI = <T>(
-  path: string,
-  opt: { internal?: boolean; external?: string; fallback?: any }
-) => {
-  return useSWR<T>(
-    path,
-    apiFetcher.bind(apiFetcher, [
-      path,
-      { internal: opt.internal ?? true, external: opt.external }
-    ]),
-    {
-      fallbackData: opt.fallback,
-      refreshInterval: 10000 // 10 seconds
-    }
-  );
+export const useAPI = <T>(path: string, fallback?: any) => {
+  return useSWR<T>(path, apiFetcher, {
+    fallbackData: fallback,
+    refreshInterval: 10000
+  });
 };

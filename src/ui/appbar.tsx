@@ -103,7 +103,7 @@ const AppBar: FC = () => {
             initial={false}
             variants={barStroke}
             animate={scroll || open ? 'change' : 'default'}
-            className="absolute left-0 bottom-0 h-[2px] w-full bg-white20"
+            className="absolute left-0 bottom-0 h-[1.5px] w-full bg-white20"
           />
         </div>
       </motion.header>

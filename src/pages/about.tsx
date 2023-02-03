@@ -6,11 +6,14 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 
 import { gqlFetcher, GQL_DATA_ARTICLE } from 'mod/lib/graphql_fetcher';
+import { useAPI } from 'mod/lib/hooks';
 import ArticleLayout from 'mod/ui/article_layout';
 import SocialCard, { icons } from 'mod/ui/social_card';
 import { socialLinks } from 'mod/ui/social_cta';
 
 const About: NextPage = ({ data }: any) => {
+  useAPI(`/article?slug=${data['slug']}`, { fallback: data });
+
   return (
     <ArticleLayout data={data}>
       <div className="pb-section flex flex-col md:flex-row w-full items-center justify-between gap-text">
@@ -19,6 +22,7 @@ const About: NextPage = ({ data }: any) => {
         ))}
       </div>
     </ArticleLayout>
+    // <></>
   );
 };
 
@@ -45,7 +49,7 @@ export const getStaticProps: GetStaticProps = async () => {
         body
       }
     },
-    revalidate: 2
+    revalidate: 5
   };
 };
 

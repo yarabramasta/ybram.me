@@ -8,7 +8,7 @@ module.exports = {
         sm: ['0.875rem', '120%'],
         base: ['1rem', '170%'],
         lg: ['1.5rem', '130%'],
-        xl: ['2.5rem', '130%']
+        xl: ['2rem', '130%']
       },
       fontFamily: {
         sans: [

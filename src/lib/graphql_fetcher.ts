@@ -7,7 +7,7 @@ const hygraph = (cdn: boolean) =>
       : <string>process.env.GRAPHCMS_CONTENT_API,
     {
       headers: {
-        Authorization: <string>process.env.GRAPHCMS_PERMANENT_AUTH_TOKEN
+        Authorization: `Bearer ${process.env.GRAPHCMS_PERMANENT_AUTH_TOKEN}`
       }
     }
   );
