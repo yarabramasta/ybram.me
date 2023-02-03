@@ -18,21 +18,23 @@ const handler: NextApiHandler = async (req, res) => {
     if (req.method === 'POST') {
       const views = data['article']['views'] + 1;
 
-      await gqlFetcher(`
-        mutation {
+      await gqlFetcher(
+        `mutation {
           updateArticle(where: {slug: ${param}}, data: {views: ${views}}) {
             views
           }
-        }
-      `);
+        }`,
+        false
+      );
 
-      await gqlFetcher(`
-        mutation {
+      await gqlFetcher(
+        `mutation {
           publishArticle(where: {slug: ${param}}, to: PUBLISHED) {
             views
           }
-        }
-      `);
+        }`,
+        false
+      );
 
       return res.send('OK');
     }
