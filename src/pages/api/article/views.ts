@@ -1,7 +1,7 @@
 import type { NextApiHandler } from 'next';
 
 import { gqlFetcher } from 'mod/lib/graphql_fetcher';
-import { allowCors, getInternalUrl } from 'mod/lib/utils';
+import { getInternalUrl } from 'mod/lib/utils';
 
 const handler: NextApiHandler = async (req, res) => {
   const { searchParams } = new URL(getInternalUrl(req.url));
@@ -45,4 +45,4 @@ const handler: NextApiHandler = async (req, res) => {
   return res.status(400).json({ message: 'Not Found' });
 };
 
-export default allowCors(handler);
+export default handler;
