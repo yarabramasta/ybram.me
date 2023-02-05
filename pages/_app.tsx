@@ -1,13 +1,9 @@
 import '@/styles/globals.css';
 
 import Header from '@/ui/Header';
+import IntroWrapper from '@/ui/IntroWrapper';
 import { Analytics } from '@vercel/analytics/react';
 import type { AppType } from 'next/app';
-import dynamic from 'next/dynamic';
-
-const IntroWrapper = dynamic(() => import('../ui/IntroWrapper'), {
-  ssr: false
-});
 
 const App: AppType = ({ Component, pageProps }) => {
   return (
