@@ -67,12 +67,12 @@ const Noise: FC = () => {
       className="h-full w-full -z-10 absolute top-0 left-0"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 0.1, duration: 0.3, ease: 'easeInOut' }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
     >
       <style jsx>{`
         #canvas {
           opacity: 0.1;
-          background-color: var(--color-white20);
+          background-color: var(--color-white40);
         }
       `}</style>
       <canvas id="canvas" ref={ref} />
