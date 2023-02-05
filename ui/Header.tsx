@@ -5,22 +5,21 @@ import {
   useMotionValueEvent,
   useScroll
 } from 'framer-motion';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { PropsWithChildren, useEffect, useState, type FC } from 'react';
+import { PropsWithChildren, useContext, useState, type FC } from 'react';
 
 import { useWindowSize } from '@/hooks';
-
-const DrawerToggle = dynamic(() => import('./DrawerToggle'));
+import Drawer from './Drawer';
 
 const Header: FC & {
   Link: typeof NavLink;
   Menu: typeof NavMenu;
   Logo: typeof Logo;
+  Drawer: typeof WithDrawer;
 } = () => {
   const [scrolling, setScrolling] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const { state: drawerOpen } = useContext(Drawer.state);
   const { scrollY } = useScroll();
   const { width } = useWindowSize();
 
@@ -30,36 +29,33 @@ const Header: FC & {
     }
   });
 
-  useEffect(() => {
-    document.body.style.overflowY = drawerOpen ? 'hidden' : 'scroll';
-  }, [drawerOpen]);
-
   return (
     <header
       className={clsx(
-        'w-full fixed top-0 left-0 z-20 duration-300 ease-in-out backdrop-blur-md',
+        'w-full fixed top-0 left-0 z-30 duration-300 ease-in-out backdrop-blur-md',
         drawerOpen || scrolling ? 'bg-white04' : 'bg-transparent'
       )}
     >
-      <div className="max-w-[720px] flex flex-row mx-auto px-10 py-4 items-center justify-between">
+      <div className="max-w-[720px] flex flex-row mx-auto px-8 py-4 items-center justify-between">
         <Logo />
-        {!width ? null : width > 768 ? (
-          <NavMenu />
-        ) : (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ ease: 'easeInOut', duration: 0.3 }}
-          >
-            <DrawerToggle
-              state={drawerOpen}
-              toggle={(s) => {
-                if (scrolling) setScrolling(false);
-                setDrawerOpen(!s);
-              }}
-            />
-          </motion.div>
-        )}
+        <AnimatePresence key="nav-btn">
+          {!width ? null : width > 768 ? (
+            <NavMenu />
+          ) : (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ ease: 'easeInOut', duration: 0.3 }}
+            >
+              <Drawer.Toggle
+                onClick={() => {
+                  if (scrolling) setScrolling(false);
+                }}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
       <hr
         className={clsx(
@@ -70,6 +66,15 @@ const Header: FC & {
         )}
       />
     </header>
+  );
+};
+
+const WithDrawer = () => {
+  return (
+    <Drawer.Context>
+      <Header />
+      <Drawer />
+    </Drawer.Context>
   );
 };
 
@@ -125,6 +130,7 @@ const NavMenu: FC = () => {
           key={id}
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
           transition={{
             duration: 0.3,
             delay: i * 0.05,
@@ -183,5 +189,6 @@ const Logo = () => {
 Header.Link = NavLink;
 Header.Menu = NavMenu;
 Header.Logo = Logo;
+Header.Drawer = WithDrawer;
 
 export default Header;
