@@ -49,7 +49,7 @@ const Header: FC & {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ ease: 'easeInOut' }}
+            transition={{ ease: 'easeInOut', duration: 0.3 }}
           >
             <DrawerToggle
               state={drawerOpen}
