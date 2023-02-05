@@ -1,0 +1,17 @@
+# *
+User-agent: *
+Disallow: /*.json$
+Disallow: /*_buildManifest.js$
+Disallow: /*_middlewareManifest.js$
+Disallow: /*_ssgManifest.js$
+Disallow: /*.js$
+
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ybram.me
+
+# Sitemaps
+Sitemap: https://ybram.me/sitemap.xml
