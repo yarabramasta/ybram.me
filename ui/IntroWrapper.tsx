@@ -20,14 +20,14 @@ const IntroWrapper: FC<PropsWithChildren> = ({ children }) => {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="16"
-              initial={{ opacity: 1, pathLength: 1 }}
-              animate={{ opacity: 0, pathLength: 0 }}
+              initial={{ strokeOpacity: 1, pathLength: 1 }}
+              animate={{ strokeOpacity: 0, pathLength: 0 }}
               onAnimationComplete={() => setLoading(false)}
               transition={{
                 duration: 3,
                 ease: 'easeInOut',
                 pathLength: { duration: 2, delay: 0.3 },
-                opacity: { duration: 1, delay: 1.5 }
+                stroke: { duration: 0.3, delay: 2.5 }
               }}
             />
           </svg>
