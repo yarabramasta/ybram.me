@@ -1,11 +1,13 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState, type FC, type PropsWithChildren } from 'react';
+import Noise from './Noise';
 
 const IntroWrapper: FC<PropsWithChildren> = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   return (
     <div className="font-sans h-full">
+      <Noise />
       <AnimatePresence key="intro-wrapper" mode="wait">
         {loading ? (
           <svg
