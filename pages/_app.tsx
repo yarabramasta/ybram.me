@@ -3,17 +3,21 @@ import '@/styles/globals.css';
 import Header from '@/ui/Header';
 import { Analytics } from '@vercel/analytics/react';
 import type { AppType } from 'next/app';
+import dynamic from 'next/dynamic';
+
+const IntroWrapper = dynamic(() => import('../ui/IntroWrapper'), {
+  ssr: false
+});
 
 const App: AppType = ({ Component, pageProps }) => {
   return (
     <>
-      <div className="font-sans flex flex-col relative h-full">
+      <IntroWrapper>
         <Header />
-        <main className="flex flex-grow flex-col h-full w-full gap-8 pt-16">
-          <Component {...pageProps} />
-        </main>
-      </div>
-      <Analytics mode={'production'} />;
+        <div className="h-16" />
+        <Component {...pageProps} />
+      </IntroWrapper>
+      <Analytics mode={'production'} />
     </>
   );
 };

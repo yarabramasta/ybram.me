@@ -49,7 +49,7 @@ const Header: FC & {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, ease: 'easeInOut' }}
+            transition={{ delay: 0.1, ease: 'easeInOut' }}
           >
             <DrawerToggle
               state={drawerOpen}
@@ -99,7 +99,7 @@ const NavLink: FC<PropsWithChildren<{ href: string }>> = ({
             transition={{
               duration: 0.3,
               delay: 0.3,
-              opacity: { delay: 0.3 },
+              opacity: { delay: 0.1 },
               ease: 'easeInOut'
             }}
             className="border-white40 absolute bottom-0 right-0 w-full rounded-md origin-center"
@@ -158,7 +158,7 @@ const Logo = () => {
             strokeWidth="16"
             initial={{ opacity: 0, pathLength: 0 }}
             animate={{ opacity: 1, pathLength: 1 }}
-            transition={{ ease: 'easeOut', duration: 1.25, delay: 0.3 }}
+            transition={{ ease: 'easeOut', duration: 1.25, delay: 0.1 }}
           />
         </svg>
       </Link>
