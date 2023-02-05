@@ -71,7 +71,7 @@ const Noise: FC = () => {
     >
       <style jsx>{`
         #canvas {
-          opacity: 0.1;
+          opacity: 0.2;
           background-color: var(--color-white40);
         }
       `}</style>
