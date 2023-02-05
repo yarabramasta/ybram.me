@@ -21,7 +21,7 @@ const Noise: FC = () => {
       buffer_len = buffer32.length,
       i = 0;
 
-    for (; i < buffer_len; i++) buffer32[i] = ((255 * Math.random()) | 0) << 24;
+    for (; i < buffer_len; i++) buffer32[i] = ((200 * Math.random()) | 0) << 24;
 
     /* The putImageData() method puts the
         image data (from a specified ImageData
