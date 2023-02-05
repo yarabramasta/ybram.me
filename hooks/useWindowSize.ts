@@ -1,8 +1,4 @@
 import { useEffect, useState } from 'react';
-import useSWR from 'swr';
-import { apiFetcher } from './api_fetcher';
-
-import { gqlFetcher } from './graphql_fetcher';
 
 // Define general type for useWindowSize hook, which includes width and height
 interface Size {
@@ -11,7 +7,7 @@ interface Size {
 }
 
 // Hook
-export function useWindowSize(): Size {
+function useWindowSize(): Size {
   // Initialize state with undefined width/height so server and client renders match
   // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
   const [windowSize, setWindowSize] = useState<Size>({
@@ -42,21 +38,4 @@ export function useWindowSize(): Size {
   return windowSize;
 }
 
-export const useGraphQL = <T>(
-  query: string,
-  opt: { fallback?: any; cdn: boolean } = {
-    cdn: process.env.NODE_ENV === 'production'
-  }
-) => {
-  return useSWR<T>(query, gqlFetcher.bind(gqlFetcher, [query, opt.cdn]), {
-    fallbackData: opt.fallback,
-    refreshInterval: 10000
-  });
-};
-
-export const useAPI = <T>(path: string, fallback?: any) => {
-  return useSWR<T>(path, apiFetcher, {
-    fallbackData: fallback,
-    refreshInterval: 10000
-  });
-};
+export default useWindowSize;

@@ -20,18 +20,13 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "next/core-web-vitals",
-    "plugin:prettier/recommended",
-    "prettier"
+    "next/core-web-vitals"
   ],
-  "plugins": ["react", "react-hooks", "jsx-a11y", "prettier"],
+  "plugins": ["react", "react-hooks", "jsx-a11y"],
   "rules": {
     "no-unused-vars": [
       "warn",
-      {
-        "argsIgnorePattern": "^_",
-        "varsIgnorePattern": "^_"
-      }
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
     ]
   },
   "ignorePatterns": ["**/*.d.ts", "node_modules", ".next"]

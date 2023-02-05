@@ -1,20 +1,4 @@
-import { remarkCodeHike } from '@code-hike/mdx';
-import nextMdx from '@next/mdx';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeSlug from 'rehype-slug';
-import remarkGfm from 'remark-gfm';
-
-import theme from './scripts/poimandres.js';
-
-const withMDX = nextMdx({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [remarkGfm, [remarkCodeHike, { theme, lineNumbers: true }]],
-    rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
-  }
-});
-
-const nextConfig = withMDX({
+const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -59,6 +43,6 @@ const nextConfig = withMDX({
       }
     ];
   }
-});
+};
 
 export default nextConfig;

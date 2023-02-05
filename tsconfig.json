@@ -16,7 +16,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "mod/*": ["./src/*"]
+      "@/*": ["./*"]
     },
     "incremental": true
   },
