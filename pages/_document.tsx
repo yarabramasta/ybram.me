@@ -4,7 +4,7 @@ function Document() {
   return (
     <Html dir="ltr" lang="en">
       <Head />
-      <body>
+      <body className="overflow-x-hidden bg-black text-white">
         <Main />
         <NextScript />
       </body>

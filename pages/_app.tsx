@@ -1,21 +1,45 @@
 import '@/styles/globals.css';
 
+import {
+  Cormorant_Garamond,
+  Plus_Jakarta_Sans,
+  Source_Code_Pro
+} from '@next/font/google';
 import { Analytics } from '@vercel/analytics/react';
+import clsx from 'clsx';
 import type { AppType } from 'next/app';
-import dynamic from 'next/dynamic';
 
-import Header from '@/ui/Header';
+const serif = Cormorant_Garamond({
+  subsets: ['latin'],
+  variable: '--font-serif',
+  weight: ['400', '600', '700'],
+  preload: true
+});
 
-const Noise = dynamic(() => import('../ui/Noise'), { ssr: false });
+const sans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  preload: true
+});
+
+const mono = Source_Code_Pro({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  preload: true
+});
 
 const App: AppType = ({ Component, pageProps }) => {
   return (
     <>
-      <div className="h-full font-sans">
-        <Header.Drawer />
-        <div className="h-16" />
+      <div
+        className={clsx(
+          serif.variable,
+          sans.variable,
+          mono.variable,
+          'font-sans h-full'
+        )}
+      >
         <Component {...pageProps} />
-        {process.env.NODE_ENV !== 'development' && <Noise />}
       </div>
       <Analytics mode={'production'} />
     </>

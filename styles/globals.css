@@ -46,16 +46,6 @@
     border: 4px solid transparent;
   }
 
-  body {
-    @apply overflow-x-hidden bg-black text-white;
-
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  a {
-    @apply duration-300 ease-in-out transition-all;
-  }
-
   button,
   a,
   input {
@@ -72,4 +62,15 @@ body {
 
 #__next {
   height: 100%;
+}
+
+h1,
+h2,
+h3 {
+  @apply font-serif;
+}
+
+code,
+pre {
+  @apply font-mono;
 }
