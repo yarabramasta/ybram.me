@@ -1,8 +1,15 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./pages/**/*.{jsx,tsx}', './ui/**/*.{jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        serif: ['var(--font-serif)', ...fontFamily.serif],
+        sans: ['var(--font-sans)', ...fontFamily.sans],
+        mono: ['var(--font-mono)', ...fontFamily.mono]
+      },
       colors: {
         black: 'var(--color-black)',
         black85: 'var(--color-black85)',
