@@ -1,6 +1,6 @@
 import getStaticAssetsUrl from './getStaticAssetsUrl';
 
-interface Metadata {
+export interface MetadataConfig {
   title: string;
   description: string;
   og: {
@@ -12,7 +12,20 @@ interface Metadata {
   };
 }
 
-export default function getPageMetadata(metadata?: Metadata) {
+export interface Metadata {
+  title: string;
+  links: Array<{
+    rel: string;
+    href: string;
+    type?: string;
+  }>;
+  meta: Array<{
+    name: string;
+    content: string;
+  }>;
+}
+
+export default function getPageMetadata(metadata?: MetadataConfig): Metadata {
   const title = 'Yara Bramasta';
   const description = 'A college student and mobile app developer.';
 
@@ -37,7 +50,6 @@ export default function getPageMetadata(metadata?: Metadata) {
       { rel: 'manifest', href: '/site.webmanifest' },
       { rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon' },
       { rel: 'apple-touch-icon', href: '/icon/apple-touch-icon.png' },
-      { rel: 'robots', href: '/robots.txt' },
       { rel: 'canonical', href: 'https://www.ybram.me' }
     ],
     meta: [
