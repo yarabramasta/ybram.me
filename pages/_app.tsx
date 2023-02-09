@@ -9,6 +9,8 @@ import { Analytics } from '@vercel/analytics/react';
 import clsx from 'clsx';
 import type { AppType } from 'next/app';
 
+import Header from '@/ui/Header';
+
 const serif = Cormorant_Garamond({
   subsets: ['latin'],
   variable: '--font-serif',
@@ -36,10 +38,13 @@ const App: AppType = ({ Component, pageProps }) => {
           serif.variable,
           sans.variable,
           mono.variable,
-          'font-sans h-full'
+          'font-sans'
         )}
       >
-        <Component {...pageProps} />
+        <Header />
+        <main className="pt-16">
+          <Component {...pageProps} />
+        </main>
       </div>
       <Analytics mode={'production'} />
     </>
