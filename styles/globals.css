@@ -64,12 +64,6 @@ body {
   height: 100%;
 }
 
-h1,
-h2,
-h3 {
-  @apply font-serif;
-}
-
 code,
 pre {
   @apply font-mono;

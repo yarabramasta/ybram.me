@@ -6,6 +6,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head />
+      <div className="px-20"></div>
     </>
   );
 };
