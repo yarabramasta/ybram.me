@@ -9,11 +9,11 @@ const Head: FC<{ config?: MetadataConfig }> = ({ config }) => {
   return (
     <NextHead>
       <title>{metadata.title}</title>
-      {metadata.meta.map((v) => (
-        <meta key={v.name} {...v} />
+      {metadata.meta.map((v, i) => (
+        <meta key={v.name + i} {...v} />
       ))}
-      {metadata.links.map((v) => (
-        <link key={v.rel} {...v} />
+      {metadata.links.map((v, i) => (
+        <link key={v.rel + i} {...v} />
       ))}
     </NextHead>
   );
