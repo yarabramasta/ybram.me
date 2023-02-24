@@ -1,4 +1,4 @@
-export default function getStaticAssetsUrl(path: string) {
+export default function getAbsoluteUrl(path: string) {
   const base =
     process.env.SITE_URL ?? process.env.NODE_ENV === 'production'
       ? 'https://ybram.me'
