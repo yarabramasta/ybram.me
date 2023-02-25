@@ -21,8 +21,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^0.1.10",
     "clsx": "^1.2.1",
     "next": "^13.2.x",
+    "next-themes": "npm:@wits/next-themes",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
