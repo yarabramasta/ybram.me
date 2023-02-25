@@ -1,7 +1,10 @@
 import './globals.css';
 
+import ThemeWrapper from '@/components/ThemeWrapper';
+import getAbsoluteUrl from '@/utils/getAbsoluteUrl';
 import clsx from 'clsx';
 import type { Metadata } from 'next';
+import { ServerThemeProvider } from 'next-themes';
 import localFont from 'next/font/local';
 
 const clashGrotesk = localFont({
@@ -12,9 +15,73 @@ const clashGrotesk = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Yara Bramasta',
+  title: { default: 'Yara Bramasta', template: '%s ┈ Yara Bramasta' },
   description:
-    'A passionate software developer, focusing on mobile app development.'
+    'A passionate software developer, focusing on mobile app development.',
+  creator: 'yarabramasta',
+  alternates: { canonical: 'https://ybram.me' },
+  viewport: 'initial-scale=1, viewport-fit=cover, user-scalable=no',
+  manifest: getAbsoluteUrl('/site.webmanifest'),
+  keywords: [
+    'Yara Bramasta',
+    'bram',
+    'yarabramasta',
+    'ybram.me',
+    'ybram me',
+    'github',
+    'indonesia',
+    'nextjs',
+    'flutter',
+    'personal portfolio'
+  ],
+  verification: {
+    google: 'g5Jypw7qhL9rKyiZ4-7hqifydSaFcO3REmVeyd2qij0',
+    me: 'yarabram111@gmail.com'
+  },
+  icons: {
+    icon: [
+      '/favicon.ico',
+      { url: '/apple-icon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/apple-icon-32x32.png', sizes: '32x32', type: 'image/png' }
+    ],
+    shortcut: getAbsoluteUrl('/favicon.ico'),
+    apple: [
+      { url: '/apple-touch-icon.png' },
+      { url: '/apple-icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/apple-icon-512x312.png', sizes: '512x312', type: 'image/png' }
+    ]
+  },
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: false,
+      noimageindex: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1
+    }
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://ybram.me',
+    title: 'Yara Bramasta',
+    description:
+      'A passionate software developer, focusing on mobile app development.',
+    siteName: 'Yara Bramasta',
+    images: getAbsoluteUrl('/images/og.jpg'),
+    countryName: 'Indonesia',
+    locale: 'en'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    creator: '@yarabram',
+    title: 'Yara Bramasta',
+    description:
+      'A passionate software developer, focusing on mobile app development.',
+    images: getAbsoluteUrl('/images/og.jpg')
+  }
 };
 
 export default function RootLayout({
@@ -23,10 +90,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={clsx(clashGrotesk.variable, 'font-sans')}>
-        {children}
-      </body>
-    </html>
+    <ServerThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <html lang="en" className="dark" suppressHydrationWarning>
+        <body
+          className={clsx(
+            clashGrotesk.variable,
+            'font-sans',
+            'bg-light dark:bg-dark'
+          )}
+        >
+          <ThemeWrapper attribute="class" defaultTheme="system" enableSystem>
+            {children}
+          </ThemeWrapper>
+        </body>
+      </html>
+    </ServerThemeProvider>
   );
 }
