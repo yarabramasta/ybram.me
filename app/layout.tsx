@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   creator: 'yarabramasta',
   alternates: { canonical: 'https://ybram.me' },
   viewport: 'initial-scale=1, viewport-fit=cover, user-scalable=no',
-  manifest: getAbsoluteUrl('/site.webmanifest'),
+  manifest: '/site.webmanifest',
   keywords: [
     'Yara Bramasta',
     'bram',
