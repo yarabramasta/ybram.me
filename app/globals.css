@@ -4,7 +4,13 @@
 
 @layer base {
   :root {
+    --color-dark-rgb-val: 10 10 12;
+    --color-light-rgb-val: 242 242 249;
     --color-dark: rgb(10, 10, 12);
     --color-light: rgb(242, 242, 249);
   }
+}
+
+p {
+  @apply text-dark/80 dark:text-light/80;
 }
