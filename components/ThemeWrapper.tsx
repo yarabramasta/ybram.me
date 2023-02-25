@@ -23,9 +23,10 @@ export default function ThemeWrapper({
 
 export function ThemeTesterWidget() {
   const { theme, setTheme } = useTheme();
+
   return (
     <div className="flex flex-col space-y-2 items-center justify-center h-screen">
-      The current theme is: {theme}
+      The current theme is: {theme ?? 'loading...'}
       <div className="flex flex-row space-x-2">
         <button className="p-1 bg-slate-400" onClick={() => setTheme('light')}>
           Light Mode
