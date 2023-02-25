@@ -3,14 +3,26 @@ import Section from '@/components/Section';
 export default function Home() {
   return (
     <>
-      <Section>
-        <h1 className="text-4xl mb-2 font-bold">Lorem Ipsum</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-          obcaecati quod a quam illo reprehenderit quisquam ipsam ullam eum
-          molestiae!
-        </p>
-      </Section>
+      <div className="flex flex-col lg:flex-row border-b border-b-dark/20 dark:border-b-light/20">
+        <Section border={false} fullHeight>
+          <div className="flex h-full flex-col justify-between">
+            <h3 className="flex flex-row items-center gap-4 text-xs lg:text-sm text-dark/80 dark:text-light/80">
+              <span>Yara Bramasta</span>
+              <hr className="border-dark/80 dark:border-light/80 w-full lg:w-6" />
+              <span className="flex-grow">Mobile App Developer</span>
+            </h3>
+            <h1 className="text-2xl lg:text-4xl font-semibold max-w-[480px]">
+              A Passionate Software Developer,
+              <br />
+              <span className="bg-clip-text bg-gradient-to-r from-violet-900 to-pink-700 text-transparent">
+                focusing on Mobile App Development.
+              </span>
+            </h1>
+            <ul></ul>
+          </div>
+        </Section>
+        <Section border={false}></Section>
+      </div>
     </>
   );
 }

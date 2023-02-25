@@ -41,7 +41,9 @@ export default function Footer() {
           <h4>Yara Bramasta</h4>
         </div>
       </div>
-      <p className="text-sm">&copy; 2023 Yara Bramasta. All Rights Reserved.</p>
+      <p className="text-dark/60 dark:text-light/60 text-sm mx-auto lg:mx-0 text-center lg:text-left">
+        &copy; 2023 Yara Bramasta. All Rights Reserved.
+      </p>
     </footer>
   );
 }
@@ -56,7 +58,7 @@ function FooterItems({
       {items.map(({ href, text, external: pop }) => (
         <li
           key={text}
-          className="text-dark/80 dark:text-light/80 hover:text-dark hover:dark:text-light duration-300 ease-out active:opacity-100 text overflow-hidden relative"
+          className="text-dark/60 dark:text-light/60 hover:text-dark hover:dark:text-light duration-300 ease-out active:opacity-100 text overflow-hidden relative"
         >
           <Link
             href={href}
