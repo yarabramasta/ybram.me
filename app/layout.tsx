@@ -1,5 +1,6 @@
 import './globals.css';
 
+import Footer from '@/components/Footer';
 import ThemeWrapper from '@/components/ThemeWrapper';
 import getAbsoluteUrl from '@/utils/getAbsoluteUrl';
 import clsx from 'clsx';
@@ -96,12 +97,14 @@ export default function RootLayout({
           className={clsx(
             clashGrotesk.variable,
             'font-sans',
-            'bg-light dark:bg-dark'
+            'bg-light dark:bg-dark',
+            'antialiased'
           )}
         >
           <ThemeWrapper attribute="class" defaultTheme="system" enableSystem>
             {children}
           </ThemeWrapper>
+          <Footer />
         </body>
       </html>
     </ServerThemeProvider>

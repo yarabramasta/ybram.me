@@ -5,8 +5,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        dark: 'rgb(var(--color-dark) / <alpha-value>)',
-        light: 'rgb(var(--color-light) / <alpha-value>)'
+        dark: 'rgb(var(--color-dark-rgb-val) / <alpha-value>)',
+        light: 'rgb(var(--color-light-rgb-val) / <alpha-value>)'
       },
       fontFamily: {
         sans: [
