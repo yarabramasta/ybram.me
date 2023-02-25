@@ -14,3 +14,16 @@
 p {
   @apply text-dark/80 dark:text-light/80;
 }
+
+.safe-h-screen {
+  height: calc(
+    100vh - env(safe-area-inset-bottom, 0)- env(safe-area-inset-top, 0)
+  );
+  height: 100vh;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .safe-h-screen {
+    height: -webkit-fill-available;
+  }
+}
