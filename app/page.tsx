@@ -8,7 +8,7 @@ export default function Home() {
         fullHeight
         fullWidth
         adaptiveBorder
-        style="max-h-[88vh] lg:max-h-screen flex flex-col justify-between p-10 lg:px-20"
+        style="max-h-[88vh] lg:max-h-screen flex flex-col justify-between p-8 lg:px-20 lg:py-10"
       >
         <h3 className="flex flex-row items-center gap-4 text-xs md:text-sm text-opacity-80">
           <span>Yara Bramasta</span>
