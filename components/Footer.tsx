@@ -6,7 +6,7 @@ import Logo from './Logo';
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col md:flex-row gap-10 px-10 md:px-20 py-10 items-baseline w-full justify-between lg:gap-20">
+    <footer className="flex flex-col md:flex-row gap-10 p-8 lg:px-20 lg:py-10 items-baseline w-full justify-between lg:gap-20">
       <div className="flex flex-grow flex-col md:flex-row gap-10 items-start">
         <div className="flex flex-row flex-grow items-start justify-between gap-10">
           <FooterItems
