@@ -6,13 +6,31 @@
   :root {
     --color-dark-rgb-val: 10 10 12;
     --color-light-rgb-val: 242 242 249;
-    --color-dark: rgb(10, 10, 12);
-    --color-light: rgb(242, 242, 249);
+    --color-purple-accent-rgb-val: 92 92 240;
+    --color-pink-accent-rgb-val: 233 70 138;
+    scrollbar-width: thin;
   }
 }
 
+:focus {
+  @apply outline-none;
+}
+
+::selection {
+  @apply bg-purple-accent/20 text-purple-accent;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+body {
+  @apply bg-light dark:bg-dark text-dark dark:text-light overflow-x-hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
 p {
-  @apply text-dark/80 dark:text-light/80;
+  @apply text-opacity-80;
 }
 
 .safe-h-screen {
@@ -26,4 +44,9 @@ p {
   .safe-h-screen {
     height: -webkit-fill-available;
   }
+}
+
+svg,
+path {
+  @apply stroke-dark dark:stroke-light fill-none;
 }
