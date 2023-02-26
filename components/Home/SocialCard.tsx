@@ -16,7 +16,7 @@ function SocialCard({
       rel="noreferrer noopener"
       className={clsx(
         disable && 'pointer-events-none cursor-default',
-        'flex flex-row gap-2 p-2 text-sm border border-dark/20 dark:border-light/20 duration-300 ease-out hover:bg-dark/10 hover:dark:bg-light/10 hover:border-dark/60 hover:dark:border-light/60 rounded-md items-center justify-center flex-grow h-full'
+        'flex flex-row gap-2 p-2 text-sm border border-dark/20 dark:border-light/20 duration-300 ease-out hover:bg-dark/10 hover:dark:bg-light/10 hover:border-dark/60 hover:dark:border-light/60 rounded-md items-center justify-center flex-grow'
       )}
     >
       <span>{children}</span>
