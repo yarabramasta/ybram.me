@@ -7,7 +7,7 @@ export default function NavItem({
   href,
   children,
   border = true
-}: React.PropsWithChildren<{ href: string, border: boolean }>) {
+}: React.PropsWithChildren<{ href: string, border?: boolean }>) {
   return (
     <Link
       href={href}
