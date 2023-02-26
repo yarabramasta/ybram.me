@@ -22,7 +22,7 @@ export default function Home() {
             focusing on Mobile App Development.
           </span>
         </h1>
-        <ul className="flex flex-row gap-4 w-full items-start justify-between">
+        <ul className="flex flex-row gap-4 w-full items-start justify-between flex-wrap md:flex-nowrap">
           <SocialCard.Github />
           <SocialCard.Twitter />
           <SocialCard.Location />
