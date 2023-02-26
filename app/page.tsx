@@ -32,7 +32,7 @@ export default function Home() {
         <ul className="flex flex-row w-full h-full lg:max-h-screen justify-between items-end">
           <NavItem href="">About</NavItem>
           <NavItem href="">Blog</NavItem>
-          <NavItem href="">Guestbook</NavItem>
+          <NavItem href="" border={false}>Guestbook</NavItem>
         </ul>
       </Section>
     </div>
