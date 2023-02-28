@@ -31,7 +31,7 @@ export default function NavItem({
     <Link
       href={href}
       className={clsx(
-        'flex-grow h-full p-10 lg:pr-20 flex justify-start items-end duration-300 ease-out hover:bg-dark/10 hover:dark:bg-light/10 relative group font-medium',
+        'flex-grow h-full p-10 lg:pr-20 flex justify-start items-end duration-300 ease-out relative group font-medium',
         border && 'border-r border-r-dark/20 dark:border-r-light/20'
       )}
     >
