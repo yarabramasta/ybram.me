@@ -12,7 +12,7 @@
   }
 }
 
-:focus {
+:focus, a, input, button {
   @apply outline-none outline-transparent;
 }
 
@@ -30,7 +30,7 @@ body {
 }
 
 p {
-  @apply text-opacity-80;
+  @apply text-dark/80 dark:text-light/80;
 }
 
 .safe-h-screen {
