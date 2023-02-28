@@ -13,7 +13,7 @@
 }
 
 :focus {
-  @apply outline-none;
+  @apply outline-none outline-transparent;
 }
 
 ::selection {
