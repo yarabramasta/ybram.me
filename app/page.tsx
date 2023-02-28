@@ -3,7 +3,7 @@ import Section from '@/components/Section';
 
 export default function Home() {
   return (
-    <div className="flex flex-col lg:flex-row border-b border-b-dark/20 dark:border-b-light/20">
+    <main className="flex flex-col lg:flex-row border-b border-b-dark/20 dark:border-b-light/20">
       <Section
         fullHeight
         fullWidth
@@ -46,6 +46,6 @@ export default function Home() {
           </NavItem>
         </ul>
       </Section>
-    </div>
+    </main>
   );
 }
