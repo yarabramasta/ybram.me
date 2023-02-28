@@ -25,7 +25,7 @@ export default function ContactInput() {
           }}
           type="text"
           placeholder="what's your idea..."
-          className="dark:border-b-light/20 dark:focus:border-b-light/60 dark:hover:border-b-light/60 dark:focus:placeholder:text-light/40 text-2xl font-medium dark:placeholder:text-light/20 border-b-dark/20 focus:border-b-dark/60 hover:border-b-dark/60 focus:placeholder:text-dark/40 placeholder:text-dark/20 bg-transparent border-b duration-300 ease-out transition-all leading-loose w-full pr-8"
+          className="dark:border-b-light/60 dark:focus:border-b-light/80 dark:hover:border-b-light/80 dark:focus:placeholder:text-light/40 text-2xl font-medium dark:placeholder:text-light/60 border-b-dark/60 focus:border-b-dark/80 hover:border-b-dark/80 focus:placeholder:text-dark/40 placeholder:text-dark/60 bg-transparent border-b duration-300 ease-out transition-all leading-loose w-full pr-8"
           maxLength={200}
         />
         <button
@@ -37,7 +37,7 @@ export default function ContactInput() {
             strokeWidth="1.5"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
-            className="duration-300 ease-out group-hover:stroke-dark/60 stroke-dark/20 group-focus-within:stroke-dark/60 dark:group-hover:stroke-light/60 dark:stroke-light/20 dark:group-focus-within:stroke-light/60"
+            className="duration-300 ease-out group-hover:stroke-dark/80 stroke-dark/60 group-focus-within:stroke-dark/80 dark:group-hover:stroke-light/80 dark:stroke-light/60 dark:group-focus-within:stroke-light/60"
           >
             <path
               d="M6 12h12.5m0 0l-6-6m6 6l-6 6"
@@ -47,7 +47,7 @@ export default function ContactInput() {
           </svg>
         </button>
       </form>
-      <span className="text-dark/20 dark:text-light/20 group-hover:text-dark/60 dark:group-hover:text-light/60 text-xs leading-loose duration-300 ease-out group-focus-within:text-dark/60 dark:group-focus-within:text-light/60">
+      <span className="text-dark/60 dark:text-light/60 group-hover:text-dark/80 dark:group-hover:text-light/80 text-xs leading-loose duration-300 ease-out group-focus-within:text-dark/80 dark:group-focus-within:text-light/80">
         {`${val.length} / 200`}
       </span>
     </div>
