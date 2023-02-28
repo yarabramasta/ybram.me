@@ -12,7 +12,10 @@
   }
 }
 
-:focus, a, input, button {
+:focus,
+a,
+input,
+button {
   @apply outline-none outline-transparent;
 }
 
@@ -44,9 +47,4 @@ p {
   .safe-h-screen {
     height: -webkit-fill-available;
   }
-}
-
-svg,
-path {
-  @apply stroke-dark dark:stroke-light fill-none;
 }

@@ -6,6 +6,7 @@ function Svg({ size, children }: React.PropsWithChildren<{ size: number }>) {
       strokeWidth="1"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
+      className="stroke-dark dark:stroke-light fill-none"
     >
       {children}
     </svg>
