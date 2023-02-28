@@ -1,16 +1,37 @@
 'use client';
 
+import { useState } from 'react';
+
 export default function ContactInput() {
+  const [val, setVal] = useState('');
+
+  const handleSubmit = (evt: any) => {
+    evt.preventDefault();
+    window.location.href = `mailto:bramasta.yb@gmail.com?body=${encodeURIComponent(
+      val
+    )}`;
+  };
+
   return (
     <div className="w-full md:w-[320px] flex flex-col group">
-      <div className="relative flex w-full items-center">
+      <form
+        className="relative flex w-full items-center"
+        onSubmit={handleSubmit}
+        noValidate
+      >
         <input
+          onChange={(evt) => {
+            setVal(evt.target.value);
+          }}
           type="text"
           placeholder="what's your idea..."
           className="dark:border-b-light/20 dark:focus:border-b-light/60 dark:hover:border-b-light/60 dark:focus:placeholder:text-light/40 text-2xl font-medium dark:placeholder:text-light/20 border-b-dark/20 focus:border-b-dark/60 hover:border-b-dark/60 focus:placeholder:text-dark/40 placeholder:text-dark/20 bg-transparent border-b duration-300 ease-out transition-all leading-loose w-full pr-8"
           maxLength={200}
         />
-        <button className="absolute right-0 duration-300 ease-out active:-right-[8px]">
+        <button
+          className="absolute right-0 duration-300 ease-out active:-right-[8px]"
+          onClick={handleSubmit}
+        >
           <svg
             height={24}
             strokeWidth="1.5"
@@ -25,9 +46,9 @@ export default function ContactInput() {
             />
           </svg>
         </button>
-      </div>
+      </form>
       <span className="text-dark/20 dark:text-light/20 group-hover:text-dark/60 dark:group-hover:text-light/60 text-xs leading-loose duration-300 ease-out group-focus-within:text-dark/60 dark:group-focus-within:text-light/60">
-        0 / 200
+        {`${val.length} / 200`}
       </span>
     </div>
   );
