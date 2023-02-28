@@ -30,9 +30,20 @@ export default function Home() {
       </Section>
       <Section border={false} style="h-[24vh] lg:h-screen">
         <ul className="flex flex-row w-full h-full lg:max-h-screen justify-between items-end">
-          <NavItem href="">About</NavItem>
-          <NavItem href="">Blog</NavItem>
-          <NavItem href="" border={false}>Guestbook</NavItem>
+          <NavItem index={1} href="" position="object-left-top">
+            About
+          </NavItem>
+          <NavItem index={2} href="" position="object-left-top">
+            Blog
+          </NavItem>
+          <NavItem
+            index={3}
+            href=""
+            position="object-left-bottom"
+            border={false}
+          >
+            Guestbook
+          </NavItem>
         </ul>
       </Section>
     </div>
