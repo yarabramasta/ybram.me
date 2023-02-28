@@ -31,11 +31,11 @@ export default function NavItem({
     <Link
       href={href}
       className={clsx(
-        'flex-grow h-full p-10 lg:pr-20 flex justify-start items-end duration-300 ease-out relative group font-medium',
+        'flex-grow h-full p-8 lg:pr-20 flex justify-start items-end duration-300 ease-out relative group text-dark dark:text-light hover:text-light text-lg md:text-xl',
         border && 'border-r border-r-dark/20 dark:border-r-light/20'
       )}
     >
-      <div className="absolute top-0 left-0 w-full h-full -z-40 bg-dark/40 opacity-0 duration-300 ease-out group-hover:opacity-100" />
+      <div className="absolute top-0 left-0 w-full h-full -z-40 opacity-0 duration-300 ease-out group-hover:opacity-100" />
       <div className="absolute top-0 left-0 w-full h-full duration-300 ease-out group-hover:opacity-100 opacity-0 -z-50">
         <Image
           alt="hover-bg"
