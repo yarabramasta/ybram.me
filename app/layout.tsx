@@ -1,12 +1,11 @@
 import './globals.css';
 
-import Footer from '@/components/Footer';
-import ThemeWrapper from '@/components/ThemeWrapper';
-import getAbsoluteUrl from '@/utils/getAbsoluteUrl';
 import clsx from 'clsx';
 import type { Metadata } from 'next';
 import { ServerThemeProvider } from 'next-themes';
 import localFont from 'next/font/local';
+
+import getAbsoluteUrl from '@/utils/getAbsoluteUrl';
 
 const clashGrotesk = localFont({
   src: './static/clash-grotesk.woff2',
@@ -96,15 +95,10 @@ export default function RootLayout({
         <body
           className={clsx(
             clashGrotesk.variable,
-            'font-sans',
-            'bg-light dark:bg-dark',
-            'antialiased'
+            'font-sans bg-light dark:bg-dark antialiased'
           )}
         >
-          <ThemeWrapper attribute="class" defaultTheme="system" enableSystem>
-            {children}
-          </ThemeWrapper>
-          <Footer />
+          {children}
         </body>
       </html>
     </ServerThemeProvider>

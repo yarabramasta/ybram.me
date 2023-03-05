@@ -1,10 +1,11 @@
+import BaseLayout from '@/components/BaseLayout';
 import { ContactInput, NavItem, SocialCard } from '@/components/Home';
 import Section from '@/components/Section';
 
 export default function Home() {
   return (
-    <main>
-      <div className="flex flex-col lg:flex-row border-b border-b-dark/20 dark:border-b-light/20">
+    <BaseLayout>
+      <main className="flex flex-col lg:flex-row border-b border-b-dark/20 dark:border-b-light/20">
         <Section
           fullHeight
           fullWidth
@@ -47,7 +48,7 @@ export default function Home() {
             </NavItem>
           </ul>
         </Section>
-      </div>
+      </main>
       <Section style="p-8 lg:px-20 lg:py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
         <div className="flex flex-col gap-4 flex-grow">
           <h3 className="text-lg font-medium">
@@ -60,6 +61,6 @@ export default function Home() {
           with a mobile application.
         </p>
       </Section>
-    </main>
+    </BaseLayout>
   );
 }
